@@ -16,7 +16,7 @@ before_script:
     # indica instalar los paquetes 
   - apt-get --quiet update --yes
   - apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
-  - sudo apt install gradle
+  - apt-get install gradle
     # instalar el Android SDK
   - wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip
   - unzip -d android-sdk-linux android-sdk.zip
