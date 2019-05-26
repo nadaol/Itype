@@ -35,6 +35,10 @@ before_script:
 stages:
   - build
   - test
+  
+  before_install:
+  - pwd
+  - ls -la
 
 # 1) Construccion de la aplicacion
 lintDebug:
