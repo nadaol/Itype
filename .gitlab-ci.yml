@@ -31,12 +31,10 @@ before_script:
   - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
   - set -o pipefail
 
-
 # definicion de las etapas de la CI
 stages:
   - build
   - test
-  
 
 # 1) Construccion de la aplicacion
 lintDebug:
