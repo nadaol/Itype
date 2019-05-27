@@ -27,13 +27,14 @@ public class Puestos_Controller extends AppCompatActivity implements Observador 
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url("ws://192.168.0.21:8080").build();
         //Crea el websocket para que me avisen los updates
+
         //Esto tiene que estar al terminar la prueba
         String Velocidad="19";//vel calculada
         Wc=WebSocketConnection.getInstance();
         Wc.setObs(this);
         client.newWebSocket(request, Wc);
         client.dispatcher().executorService().shutdown();
-
+//
 
         try {
             //Esto tiene que estar en el login
