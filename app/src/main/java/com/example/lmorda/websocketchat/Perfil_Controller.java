@@ -18,7 +18,7 @@ public class Perfil_Controller extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vista_perfil);
         //Obtiene nueva informacion de usuario
-        try {Usuario.updateData();}catch(Exception e){e.printStackTrace();}
+        try {Usuario.actualizarInfo();}catch(Exception e){e.printStackTrace();}
         Volver = findViewById(R.id.volver_btn);
         Salir = findViewById(R.id.salir_btn);
         jugadas = findViewById(R.id.jugadas);

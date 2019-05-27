@@ -12,27 +12,27 @@ import static org.junit.Assert.*;
 public class UsuarioTest {
 
     @Test
-    public void test1ValidLogin() throws Exception
+    public void test1LoginValido() throws Exception
     {
         assertEquals("Log in succesfull,Welcome user1 ",Usuario.login("user1","12345"));
     }
 
     @Test
-    public void test2InvalidLogin() throws Exception
+    public void test2LoginInvalido() throws Exception
     {
         assertEquals("Invalid Username or Password ",Usuario.login("usuarioInvalido","12345"));
     }
 
     @Test
-    public void test3InvalidReg() throws Exception
+    public void test3RegistroInvalido() throws Exception
     {
-        assertTrue(Usuario.register("user1","12345").startsWith("Registration Error"));
+        assertTrue(Usuario.registrar("user1","12345").startsWith("Registration Error"));
     }
 
     @Test
-    public void test4UpdateData() throws Exception
+    public void test4ActializarInfo() throws Exception
     {
-        Usuario.updateData();
+        Usuario.actualizarInfo();
         assertEquals("user1",Usuario.getName());
     }
 

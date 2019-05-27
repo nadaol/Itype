@@ -4,12 +4,10 @@ import android.support.test.rule.ActivityTestRule;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class Perfil_ControllerTest {
@@ -25,7 +23,7 @@ public class Perfil_ControllerTest {
     }
 
     @Test
-    public void testExistanceTextViews()
+    public void ExistenciaTextViews()
     {
         View view = activity.findViewById(R.id.txtUsuario);
         assertNotNull(view);
@@ -38,7 +36,7 @@ public class Perfil_ControllerTest {
     }
 
     @Test
-    public void testExistanceButtons()
+    public void ExistenciaBotones()
     {
         Button btn = activity.findViewById(R.id.volver_btn);
         assertNotNull(btn);
@@ -47,7 +45,7 @@ public class Perfil_ControllerTest {
     }
 
     @Test
-    public void testTextViewsContent()
+    public void ContenidoTextViews()
     {
         TextView view = activity.findViewById(R.id.txtUsuario);
         assertEquals("Usuario :",view.getText().toString());
@@ -60,13 +58,14 @@ public class Perfil_ControllerTest {
     }
 
     @Test
-    public void testButtonsContent()
+    public void ContenidoBotones()
     {
         Button btn = activity.findViewById(R.id.volver_btn);
         assertEquals("Volver a jugar",btn.getText().toString());
         btn = activity.findViewById(R.id.salir_btn);
         assertEquals("Salir",btn.getText().toString());
     }
+
 
 
     @After

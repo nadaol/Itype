@@ -1,26 +1,32 @@
 package com.example.lmorda.websocketchat;
 
+import android.app.Activity;
+import android.app.Instrumentation;
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-
+import static android.support.test.InstrumentationRegistry.getInstrumentation;
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
-public class Estadisticas_ControllerTest {
+public class Puestos_ControllerTest {
 
 
     @Rule
-    public ActivityTestRule<Estadisticas_Controller> TestRule=new ActivityTestRule<Estadisticas_Controller>(Estadisticas_Controller.class);
+    public ActivityTestRule<Puestos_Controller> TestRule=new ActivityTestRule<Puestos_Controller>(Puestos_Controller.class);
 
-    private Estadisticas_Controller activity = null;
+    private Puestos_Controller activity = null;
+
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Perfil_Controller.class.getName(),null,false);
 
     @Before
     public void setUp() throws Exception {
@@ -28,7 +34,7 @@ public class Estadisticas_ControllerTest {
     }
 
     @Test
-    public void testExistanceTextViews()
+    public void ExistenciaTextViews()
     {
         View view = activity.findViewById(R.id.users);
         assertNotNull(view);
@@ -38,7 +44,7 @@ public class Estadisticas_ControllerTest {
         assertNotNull(view);
     }
     @Test
-    public void testExistanceButtons()
+    public void ExistenciaBotones()
     {
         Button btn = activity.findViewById(R.id.volver_btn);
         assertNotNull(btn);
@@ -47,14 +53,14 @@ public class Estadisticas_ControllerTest {
     }
 
     @Test
-    public void testExistanceTableLayout()
+    public void ExistenciaTabla()
     {
         TableLayout table = (TableLayout)activity.findViewById(R.id.stadistic_table);
         assertNotNull(table);
     }
 
     @Test
-    public void testExistanceRows()
+    public void ExistenciaFilas()
     {
         TableLayout table = (TableLayout)activity.findViewById(R.id.stadistic_table);
         assertNotNull(table);
@@ -66,7 +72,7 @@ public class Estadisticas_ControllerTest {
     }
 
     @Test
-    public void testTextViewsContent()
+    public void ContenidoTextViews()
     {
         TextView view = activity.findViewById(R.id.users);
         assertEquals("Nombre de Usuario",view.getText().toString());
@@ -77,7 +83,7 @@ public class Estadisticas_ControllerTest {
     }
 
     @Test
-    public void testButtonsContent()
+    public void ContenidoBotones()
     {
         Button btn = activity.findViewById(R.id.volver_btn);
         assertEquals("Volver a jugar",btn.getText().toString());
@@ -85,10 +91,10 @@ public class Estadisticas_ControllerTest {
         assertEquals("Siguiente",btn.getText().toString());
     }
     @Test
-    public void testUpdateTable()
+    public void FuncionActualizarTabla()
     {
-        activity.update("Uusuario1,10\nusuario2,20\nusuario3,30\nusuario4,40\nusuario5,50\nusuario6,60\nusuario7,70\nusuario8,80\nusuario9,90\nusuario10,100\n");
-        try{Thread.sleep(50);}catch (Exception e){e.printStackTrace();};
+        activity.actualizar("Uusuario1,10\nusuario2,20\nusuario3,30\nusuario4,40\nusuario5,50\nusuario6,60\nusuario7,70\nusuario8,80\nusuario9,90\nusuario10,100\n");
+        try{Thread.sleep(200);}catch (Exception e){e.printStackTrace();};
         TextView view = activity.findViewById(R.id.v1);
         assertEquals("10",view.getText().toString());
         view = activity.findViewById(R.id.v2);
@@ -129,6 +135,16 @@ public class Estadisticas_ControllerTest {
         assertEquals("usuario9",view.getText().toString());
         view = activity.findViewById(R.id.u10);
         assertEquals("usuario10",view.getText().toString());
+    }
+
+    @Test
+    public void FuncionalidadBotonSiguiente()
+    {
+        assertNotNull(activity.findViewById(R.id.siguiente_btn));
+        onView(withId(R.id.siguiente_btn)).perform(click());
+        Activity activity2 = getInstrumentation().waitForMonitorWithTimeout(monitor,3000);
+        assertNotNull(activity2);
+        activity2.finish();
     }
 
 

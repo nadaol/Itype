@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Perfil_Controller"></activity>
-        <activity android:name=".Estadisticas_Controller">
+        <activity android:name=".Puestos_Controller">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

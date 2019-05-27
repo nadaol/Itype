@@ -23,7 +23,7 @@ public final class WebSocketConnection extends WebSocketListener {
 
     @Override
     public void onMessage(WebSocket webSocket, String text) {
-    obs.update(text);//Genera el update al observador
+    obs.actualizar(text);//Genera el update al observador
     }
 
         @Override
@@ -33,7 +33,7 @@ public final class WebSocketConnection extends WebSocketListener {
         @Override
         public void onFailure (WebSocket webSocket,final Throwable t, Response response) {
 
-            obs.update("TError : " + t.getMessage());
+            obs.actualizar("TError : " + t.getMessage());
         }
         public static WebSocketConnection getInstance(){
         if(unique==null)
@@ -41,8 +41,7 @@ public final class WebSocketConnection extends WebSocketListener {
             unique = new WebSocketConnection();
         }
         return unique;}
-        public static void setInitial(String init){initial=init;}
         public static void setObs(Observador o){obs=o;}
-        public static void send(String messege){ws.send(messege);}
+        public static void enviar(String messege){ws.send(messege);}
 
 }

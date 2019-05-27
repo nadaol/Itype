@@ -13,7 +13,7 @@ public class Usuario {
     }
 
 
-    public static void updateData() throws Exception
+    public static void actualizarInfo() throws Exception
     {//Realiza un update de los datos del usuario con respecto a la última jugada
         if(usuario!=null&&Nombre!=null) {
             try {
@@ -42,7 +42,7 @@ public class Usuario {
         return result;
     }
 
-    public static String register(String Name,String Password) throws Exception
+    public static String registrar(String Name,String Password) throws Exception
     {
         Http_Post request = new Http_Post();//nueva conexión post para registrar usuario
         return  request.execute("http://itype.ml/register.php","user",Name,"password",Password).get();

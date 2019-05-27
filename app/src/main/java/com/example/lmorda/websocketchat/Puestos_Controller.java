@@ -13,7 +13,7 @@ import android.widget.Toast;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
-public class Estadisticas_Controller extends AppCompatActivity implements Observador {
+public class Puestos_Controller extends AppCompatActivity implements Observador {
     private Button Siguiente;
     private Button Volver;
     private static WebSocketConnection Wc;
@@ -63,7 +63,7 @@ public class Estadisticas_Controller extends AppCompatActivity implements Observ
 
     }
 
-    public void update(final String s) {//update view on UiThread
+    public void actualizar(final String s) {//update view on UiThread
         runOnUiThread(new Runnable() {
             public void run() {
                 if (s.startsWith("T"))//recievieng toast update from websocket
