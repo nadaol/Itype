@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">IType</string>
+    <string name="usuario">Usuario</string>
+    <string name="contra">Contraseña</string>
+    <string name="descript_logo">logo</string>
+    <string name="usuario_prueba_texto">Ingrese el usuario</string>
+    <string name="contra_prueba_texto">1234</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="registrar">Registrar</string>
+    <string name="texto_bienvenida">¡Bienvenido a IType!</string>
+    <string name="texto_registro">Ingrese un nuevo usuario y contraseña para poder acceder a la aplicación</string>
+    <string name="texto_regresoinicio">Volver</string>
+    <string name="iniciar_juego">Iniciar juego</string>
+    <string name="men_principal">MENÚ PRINCIPAL</string>
+    <string name="texto_perfil">Perfil</string>
+    <string name="texto_salir_menup">Salir</string>
+    <string name="titulo_sel_nivel">Seleccione la dificultad del juego:</string>
+    <string name="texto_facil">Fácil</string>
+    <string name="texto_medio">Medio</string>
+    <string name="texto_dificil">Difícil</string>
+    <string name="texto_regresoMenu">Volver</string>
+    <string name="texto_vEstTitulo">Estadísticas de juego</string>
+    <string name="texto_vActivaTitulo">¡Juego en marcha!</string>
+    <string name="texto_vActivaSalir">Salir</string>
+
+</resources>
