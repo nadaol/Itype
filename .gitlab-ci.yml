@@ -50,7 +50,7 @@ assembleDebug:
     paths:
     - app/build/outputs/
 
-# 2) Correr las prueba
+# 2) Correr las pruebas
 debugTests:
   stage: test
   script:
