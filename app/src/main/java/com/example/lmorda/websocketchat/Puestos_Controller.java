@@ -28,17 +28,18 @@ public class Puestos_Controller extends AppCompatActivity implements Observador 
         Request request = new Request.Builder().url("ws://192.168.0.21:8080").build();
         //Crea el websocket para que me avisen los updates
         //Esto tiene que estar al terminar la prueba
-        String Velocidad="129";//vel calculada
+        String Velocidad="19";//vel calculada
         Wc=WebSocketConnection.getInstance();
         Wc.setObs(this);
         client.newWebSocket(request, Wc);
         client.dispatcher().executorService().shutdown();
 
-        //Esto tiene que estar en el login
+
         try {
+            //Esto tiene que estar en el login
             String log = Usuario.login("User5","12345");
             Toast.makeText(getApplicationContext(),log,Toast.LENGTH_LONG).show();
-           Wc.enviar(Usuario.getName()+","+Velocidad);
+            Wc.enviar(Usuario.getName()+","+Velocidad);//requiere conexion con servidor local,debería enviar la velocidad al terminar la prueba
         }
         catch (Exception e){e.printStackTrace();}
 
