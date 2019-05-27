@@ -40,7 +40,7 @@ public final class WebSocketConnection extends WebSocketListener {
             }
         }
         public static WebSocketConnection getInstance(){if(unique==null) {unique = new WebSocketConnection(); }return unique;}
-        public static void addObs(Observador o){if(observadores==null){observadores = new ArrayList<Observador>();}observadores.add(o);}
+        public static void addObs(Observador o){if(observadores==null){observadores = new ArrayList<>();}observadores.add(o);}
         public static void delObs(Observador o){observadores.remove(o);}
         public static void enviar(String messege){ws.send(messege);}
 
