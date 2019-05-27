@@ -1,3 +1,4 @@
+
 image: openjdk:8-jdk
 
 variables:
@@ -49,4 +50,4 @@ instrumentedTests:
     - android-sdk-linux/emulator/emulator -avd test -no-window -no-audio &
     - ./android-wait-for-emulator
     - adb shell input keyevent 82
-- ./gradlew connectedCheck
+    - ./gradlew connectedCheck
