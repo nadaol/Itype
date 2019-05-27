@@ -40,7 +40,7 @@ public class Puestos_Controller extends AppCompatActivity implements Observador 
             //Esto tiene que estar en el login
             String log = Usuario.login("User5","12345");
             Toast.makeText(getApplicationContext(),log,Toast.LENGTH_LONG).show();
-            Wc.enviar(Usuario.getName()+","+Velocidad);//requiere conexion con servidor local,debería enviar la velocidad al terminar la prueba
+           // Wc.enviar(Usuario.getName()+","+Velocidad);//requiere conexion con servidor local,debería enviar la velocidad al terminar la prueba
         }
         catch (Exception e){e.printStackTrace();}
 
