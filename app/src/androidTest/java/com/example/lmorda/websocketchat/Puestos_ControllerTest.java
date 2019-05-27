@@ -81,7 +81,6 @@ public class Puestos_ControllerTest {
         view = activity.findViewById(R.id.velocidades);
         assertEquals("Score",view.getText().toString());
     }
-
     @Test
     public void ContenidoBotones()
     {
