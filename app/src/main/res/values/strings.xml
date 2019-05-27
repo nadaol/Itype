@@ -1,0 +1,31 @@
+<resources>
+    <string name="P1">1</string>
+    <string name="P2">2</string>
+    <string name="P3">3</string>
+    <string name="P4">4</string>
+    <string name="P5">5</string>
+    <string name="P6">6</string>
+    <string name="P7">7</string>
+    <string name="P8">8</string>
+    <string name="P9">9</string>
+    <string name="P10">10</string>
+    <string name="app_name">stadistics</string>
+    <string name="User">Usuario</string>
+    <string name="User2">Usuario : </string>
+    <string name="Users">Nombre de Usuario</string>
+    <string name="Puesto">N°</string>
+    <string name="vel">Score</string>
+    <string name="Password">Password</string>
+    <string name="CreateUsr">Register now!</string>
+    <string name="dificil">Dificil</string>
+    <string name="facil">Facil</string>
+    <string name="intermedio">Intermedio</string>
+    <string name="UsersOn">N° Usuarios en Linea : </string>
+    <string name="selecciondificultad">Seleccione la dificultad</string>
+    <string name="Sig">Siguiente</string>
+    <string name="Partidas">Jugadas : </string>
+    <string name="salir">Salir</string>
+    <string name="VelProm">Velocidad Promedio : </string>
+    <string name="VelMax">Velocidad Maxima : </string>
+    <string name="Volver">Volver a jugar</string>
+</resources>
