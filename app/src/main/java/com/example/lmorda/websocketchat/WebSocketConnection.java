@@ -1,15 +1,15 @@
 package com.example.lmorda.websocketchat;
 
+import java.util.ArrayList;
 import okhttp3.Response;
 import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 
 public final class WebSocketConnection extends WebSocketListener {
-    private static Observador obs;//el observador(interface) que recibe los updates
+    private static ArrayList<Observador> observadores;//el observador(interface) que recibe los updates
     private static WebSocket ws;
     private static WebSocketConnection unique;//el websocket de la conexion al servidor local
     private static final int NORMAL_CLOSURE_STATUS = 1000;
-    private static String initial;
 
     private WebSocketConnection()
     {
@@ -18,12 +18,14 @@ public final class WebSocketConnection extends WebSocketListener {
     @Override
     public void onOpen(WebSocket webSocket, Response response) {
         ws=webSocket;//al iniciar la conexion enviar string initial
-       if (initial!=null) ws.send(initial);
     }
 
     @Override
     public void onMessage(WebSocket webSocket, String text) {
-    obs.actualizar(text);//Genera el update al observador
+        for(int i=0;i<observadores.size();i++)
+        {
+            observadores.get(i).actualizar(text);
+        }
     }
 
         @Override
@@ -32,16 +34,14 @@ public final class WebSocketConnection extends WebSocketListener {
         }
         @Override
         public void onFailure (WebSocket webSocket,final Throwable t, Response response) {
-
-            obs.actualizar("TError : " + t.getMessage());
+            for(int i=0;i<observadores.size();i++)
+            {
+                observadores.get(i).actualizar("TError : " + t.getMessage());
+            }
         }
-        public static WebSocketConnection getInstance(){
-        if(unique==null)
-        {
-            unique = new WebSocketConnection();
-        }
-        return unique;}
-        public static void setObs(Observador o){obs=o;}
+        public static WebSocketConnection getInstance(){if(unique==null) {unique = new WebSocketConnection(); }return unique;}
+        public static void addObs(Observador o){if(observadores==null){observadores = new ArrayList<Observador>();}observadores.add(o);}
+        public static void delObs(Observador o){observadores.remove(o);}
         public static void enviar(String messege){ws.send(messege);}
 
 }

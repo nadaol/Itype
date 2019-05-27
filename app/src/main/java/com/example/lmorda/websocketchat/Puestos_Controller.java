@@ -30,9 +30,9 @@ public class Puestos_Controller extends AppCompatActivity implements Observador 
 
         //Esto tiene que estar al terminar la prueba
         String Velocidad="19";//vel calculada
-        Wc=WebSocketConnection.getInstance();
-        Wc.setObs(this);
-        client.newWebSocket(request, Wc);
+        WebSocketConnection.getInstance();
+        WebSocketConnection.addObs(this);
+        client.newWebSocket(request,WebSocketConnection.getInstance());
         client.dispatcher().executorService().shutdown();
 //
 
@@ -40,7 +40,7 @@ public class Puestos_Controller extends AppCompatActivity implements Observador 
             //Esto tiene que estar en el login
             String log = Usuario.login("User5","12345");
             Toast.makeText(getApplicationContext(),log,Toast.LENGTH_LONG).show();
-           // Wc.enviar(Usuario.getName()+","+Velocidad);//requiere conexion con servidor local,debería enviar la velocidad al terminar la prueba
+           WebSocketConnection.enviar(Usuario.getName()+","+Velocidad);//requiere conexion con servidor local,debería enviar la velocidad al terminar la prueba
         }
         catch (Exception e){e.printStackTrace();}
 
