@@ -29,7 +29,7 @@ public class Puestos_Controller extends AppCompatActivity implements Observador 
         //Crea el websocket para que me avisen los updates
 
         //Esto tiene que estar al terminar la prueba
-        String Velocidad="19";//vel calculada
+        String Velocidad="32";//vel calculada
         WebSocketConnection.getInstance();
         WebSocketConnection.addObs(this);
         client.newWebSocket(request,WebSocketConnection.getInstance());
