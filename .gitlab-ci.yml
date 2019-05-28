@@ -67,4 +67,4 @@ unitTest:
 androidTest:
   stage: test
   script: 
-    - ./gradlew connectedMockDebug
+    - ./gradlew connectedAndroidTest
