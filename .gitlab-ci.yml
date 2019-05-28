@@ -56,10 +56,15 @@ debugTests:
   script:
     - ./gradlew -Pci --console=plain :app:testDebug
 
-UnitTest:
+unitTest:
   stage: test
   script: 
     - ./gradlew test
   artifacts:
     reports:
       junit: build/test-results/test/**/TEST-*.xml
+      
+androidTest:
+  stage: test
+  script: 
+    - ./gradlew connectedMockDebug
