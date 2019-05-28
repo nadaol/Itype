@@ -60,6 +60,7 @@ assembleDebug:
     - app/build/outputs/
 
 test:
+
 # 2) Correr las pruebas
 debugTests:
   stage: test
