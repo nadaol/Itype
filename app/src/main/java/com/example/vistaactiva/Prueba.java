@@ -5,9 +5,9 @@ import android.os.CountDownTimer;
 import java.util.ArrayList;
 
 public class Prueba {
-    private Comportamiento_Generador generador;
-    private final ObservadorPrueba controlador;
-    private static CountDownTimer timer;
+    private Comportamiento_Generador generador;//tipo de generador para nuevaPalabra()
+    private final ObservadorPrueba controlador;//Observador que implementa Tick() y finalizar()
+    private static CountDownTimer timer;//Timer para la prueba
     private int TiempoPrueba;
     private int TiempoRestante;
 
@@ -15,7 +15,8 @@ public class Prueba {
     {
         TiempoPrueba=Tiempo_Seg;
         TiempoRestante=TiempoPrueba;
-        this.controlador=observador;
+        this.controlador=observador;//el controlador que implementa Tick() y finalizar() para la actualización de la vista
+
         timer =new CountDownTimer(Tiempo_Seg*1000, 1000) {
             //Se llama cada vez que pasan 1000 milisegundos
             @Override
@@ -24,7 +25,7 @@ public class Prueba {
                 controlador.Tick(TiempoRestante);
             }
 
-            //ejecuta instrucciones luego de que termina la cuenta atras
+            //ejecuta instrucciones luego de que termina la cuenta regresiva
             @Override
             public void onFinish() {
                         controlador.finalizar();
@@ -40,7 +41,7 @@ public class Prueba {
     {
         return generador.generar(palabras);
     }
-
+    //devuelve velocidad en base a caracteres correctos
     public String CalcularVelocidad(int correctChar)
     {
 
@@ -51,6 +52,7 @@ public class Prueba {
         return Integer.toString(Vf);
 
     }
+    //Emprieza a correr la cuenta regresiva
     public void empezar()
     {
         timer.start();

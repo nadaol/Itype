@@ -16,39 +16,40 @@ import java.util.ArrayList;
 
 public  class VistaActiva_Controller extends AppCompatActivity implements ObservadorPrueba {
 
-    private EditText miCaja;
-    private Lector_texto lector;
-    private Prueba prueba;
+    private EditText entrada;
+    private Lector_texto lector;//lector de texto para lectura de las palabras
+    private Prueba prueba;//objeto Prueba en background el cual avisa actualizaciones de vista
+    private ArrayList<String> Palabras;//lista de 10000 palabras
     private static TextView modelo,Tiempo,miVel;
-    private ArrayList<String> Palabras;
     private Button comenzar;
     private final int TiempoPrueba_Seg = 30;
     private static int Caractateres_Correctos=0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vista_activa);
 
-        try{lector =new Lector_texto(getAssets().open("words.txt"));}
+        try{lector =new Lector_texto(getAssets().open("words.txt"));}//lectura de archivo de palabras
         catch (IOException e){e.printStackTrace();}
-        Palabras = lector.getArray();
-        miCaja = (EditText) findViewById(R.id.Entrada_Etext);
+        Palabras = lector.getArray();//obtengo palabras
+        entrada = (EditText) findViewById(R.id.Entrada_Etext);
         modelo = (TextView) findViewById(R.id.Palabra_modelo);
         Tiempo = (TextView) findViewById(R.id.Tiempo_Tview);
         miVel = (TextView) findViewById(R.id.velocidad_Tview);
         comenzar = (Button) findViewById(R.id.comenzar_btn);
+
         comenzar.setText("Empezar!");
         miVel.setTextColor(Color.parseColor("#000000"));
         miVel.setText("0");
         Tiempo.setText(Integer.toString(TiempoPrueba_Seg));
+        //inicializacion de la prueba con observador this
         prueba = new Prueba(this,TiempoPrueba_Seg);
-        GeneradorPalabras_dificil gen_dificil = new GeneradorPalabras_dificil();
-        prueba.setGenerador(gen_dificil);
-
+        //seteo la generacion de palabras del objeto prueba
+        //---pasar dificultad de vista seleccion---
+        prueba.setGenerador(new GeneradorPalabras_dificil());
+        //creo objeto listenter para manejo de deteccion de palabras
         final View.OnKeyListener listener = new View.OnKeyListener() {
-
             //Este metodo captura eventos del teclado tactil
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -57,16 +58,16 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Observ
                     if (keyCode == KeyEvent.KEYCODE_ENTER) {//si llega el evento del enter del teclado da true
 
                         String palabra_modelo=modelo.getText().toString();
-                        String palabra_escrita=miCaja.getText().toString();
+                        String palabra_escrita= entrada.getText().toString();
 
                         if(palabra_escrita.equals(palabra_modelo)){
                             modelo.setText(prueba.nuevaPalabra(Palabras));
                             Caractateres_Correctos+= palabra_modelo.length();
-                            miCaja.setText(null);
+                            entrada.setText(null);
                         }
 
                         else {
-                            miCaja.setText(null);
+                            entrada.setText(null);
                             return false;
                         }
                     }
@@ -79,15 +80,17 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Observ
         comenzar.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(comenzar.getText().equals("Empezar!")) {
-                enableEditText(miCaja,listener);
+            if(comenzar.getText().equals("Empezar!")) {//al hacer click en Empezar!
+                enableEditText(entrada,listener);//asigno listener a la entrada
+                //deshabilito sugerencias del teclado
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.showSoftInput(miCaja, InputMethodManager.SHOW_IMPLICIT);
+                imm.showSoftInput(entrada, InputMethodManager.SHOW_IMPLICIT);
                 Caractateres_Correctos = 0;
+                //empiezo el timer de la prueba
                 prueba.empezar();
-                modelo.setText(prueba.nuevaPalabra(Palabras));
+                modelo.setText(prueba.nuevaPalabra(Palabras));//seteo primer palabra modelo
             }
-            else if(comenzar.getText().equals("Siguiente")){
+            else if(comenzar.getText().equals("Siguiente")){//al hacer click en Siguiente
                 //ir a estadísticas
                 finish();
             }
@@ -95,18 +98,17 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Observ
     });
 
 
-
     }
 
     @Override
-    public void Tick(int tiempoRestante) {
+    public void Tick(int tiempoRestante) {//se llama cada segundo por el timer de prueba
         Tiempo.setText(Integer.toString(tiempoRestante));
         miVel.setText(prueba.CalcularVelocidad(Caractateres_Correctos));
     }
 
     @Override
-    public void finalizar() {
-        disableEditText(miCaja);
+    public void finalizar() {//se llama al finalizar el timer de prueba
+        disableEditText(entrada);
         modelo.setText(null);
         Tiempo.setText("0");
         miVel.setText(prueba.CalcularVelocidad(Caractateres_Correctos));
