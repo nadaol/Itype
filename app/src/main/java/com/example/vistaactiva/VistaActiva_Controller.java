@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public  class VistaActiva_Controller extends AppCompatActivity implements ObservadorPrueba {
 
     private EditText miCaja;
-    private Lector_Palabras lector;
+    private Lector_texto lector;
     private Prueba prueba;
     private static TextView modelo,Tiempo,miVel;
     private ArrayList<String> Palabras;
@@ -29,9 +29,9 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Observ
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.vista_activa);
 
-        try{lector =new Lector_Palabras(getAssets().open("words.txt"));}
+        try{lector =new Lector_texto(getAssets().open("words.txt"));}
         catch (IOException e){e.printStackTrace();}
         Palabras = lector.getArray();
         miCaja = (EditText) findViewById(R.id.Entrada_Etext);
@@ -110,7 +110,7 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Observ
         modelo.setText(null);
         Tiempo.setText("0");
         miVel.setText(prueba.CalcularVelocidad(Caractateres_Correctos));
-        miVel.setTextColor(Color.parseColor("#CD5C5C"));
+        miVel.setTextColor(Color.parseColor("#DE2E13"));
         comenzar.setText("Siguiente");
     }
 

@@ -6,10 +6,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class Lector_Palabras {
+public class Lector_texto {
     ArrayList<String> palabras_array;
 
-    public Lector_Palabras(InputStream is) throws IOException {
+    public Lector_texto(InputStream is) throws IOException {
          palabras_array= new ArrayList<String>();
         //lee El Archivo y lo coloca en un Arreglo de Strings para luego retornarlo
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
