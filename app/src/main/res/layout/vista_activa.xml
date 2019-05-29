@@ -36,7 +36,7 @@
         android:layout_marginRight="128dp"
         android:layout_marginBottom="16dp"
         android:text=""
-        android:textColor="#DE2E13"
+        android:textColor="#D8133E"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/Entrada_Etext"
         app:layout_constraintEnd_toEndOf="parent"

@@ -90,7 +90,7 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Observ
             }
             else if(comenzar.getText().equals("Siguiente")){
                 //ir a estadísticas
-                System.exit(0);
+                finish();
             }
         }
     });
