@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tiempo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbarSize="4dp"
+    tools:context=".VistaActiva_Controller">
+
+    <EditText
+        android:id="@+id/Entrada_Etext"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="160dp"
+        android:ems="10"
+        android:inputType="textNoSuggestions|textVisiblePassword"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/comenzar_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/Palabra_modelo"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginRight="128dp"
+        android:layout_marginBottom="16dp"
+        android:text=""
+        android:textColor="#FF9800"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/Entrada_Etext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/Tiempo_Tview"
+        android:layout_width="60dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="60dp"
+        android:textColor="#009688"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/VelocidadTitle_Tview"
+        app:layout_constraintStart_toEndOf="@+id/tiempoTitle_Tview" />
+
+    <TextView
+        android:id="@+id/tiempoTitle_Tview"
+        android:layout_width="wrap_content"
+        android:layout_height="34sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="60dp"
+        android:text="@string/tiempo"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/VelocidadTitle_Tview"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/VelocidadTitle_Tview"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginRight="128dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/velocidad"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/Palabra_modelo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/velocidad_Tview"
+        android:layout_width="68dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="32dp"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/Palabra_modelo"
+        app:layout_constraintStart_toEndOf="@+id/VelocidadTitle_Tview" />
+
+    <Button
+        android:id="@+id/comenzar_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

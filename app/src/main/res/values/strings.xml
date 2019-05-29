@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">VistaActiva</string>
+    <string name="tiempo">Tiempo : </string>
+    <string name="Puntaje">Puntaje : </string>
+    <string name="velocidad">Velocidad : </string>
+    <string name="start">Comenzar!</string>
+</resources>
