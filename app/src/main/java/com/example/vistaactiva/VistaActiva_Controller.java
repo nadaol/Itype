@@ -62,7 +62,6 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Observ
                         if(palabra_escrita.equals(palabra_modelo)){
                             modelo.setText(prueba.nuevaPalabra(Palabras));
                             Caractateres_Correctos+= palabra_modelo.length();
-                            miVel.setText(prueba.CalcularVelocidad(Caractateres_Correctos));
                             miCaja.setText(null);
                         }
 
@@ -102,6 +101,7 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Observ
     @Override
     public void Tick(int tiempoRestante) {
         Tiempo.setText(Integer.toString(tiempoRestante));
+        miVel.setText(prueba.CalcularVelocidad(Caractateres_Correctos));
     }
 
     @Override
