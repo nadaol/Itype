@@ -10,20 +10,21 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
 public  class VistaActiva_Controller extends AppCompatActivity implements Temporizador {
 
     private EditText entrada;
+    private Button salir;
+    private Button comenzar;
     private Lector_texto lector;//lector de texto para lectura de las palabras
     private Prueba prueba;//objeto Prueba en background el cual avisa actualizaciones de vista
     private ArrayList<String> Palabras;//lista de 10000 palabras
     private static TextView modelo,Tiempo,miVel;
-    private Button comenzar;
     private final int TiempoPrueba_Seg = 30;
     private static int Caractateres_Correctos=0;
+    private View.OnKeyListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,9 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Tempor
         Tiempo = (TextView) findViewById(R.id.Tiempo_Tview);
         miVel = (TextView) findViewById(R.id.velocidad_Tview);
         comenzar = (Button) findViewById(R.id.comenzar_btn);
+        salir = (Button) findViewById(R.id.salir_btn);
 
-        comenzar.setText("Empezar!");
+        comenzar.setText("Comenzar!");
         miVel.setTextColor(Color.parseColor("#000000"));
         miVel.setText("0");
         Tiempo.setText(Integer.toString(TiempoPrueba_Seg));
@@ -48,8 +50,9 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Tempor
         //seteo la generacion de palabras del objeto prueba
         //---pasar dificultad de vista seleccion---
         prueba.setGenerador(new GeneradorPalabras_dificil());
+
         //creo objeto listenter para manejo de deteccion de palabras
-        final View.OnKeyListener listener = new View.OnKeyListener() {
+        listener = new View.OnKeyListener() {
             //Este metodo captura eventos del teclado tactil
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -77,25 +80,6 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Tempor
                 return true;}
         };
 
-        comenzar.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if(comenzar.getText().equals("Empezar!")) {//al hacer click en Empezar!
-                enableEditText(entrada,listener);//asigno listener a la entrada
-                //deshabilito sugerencias del teclado
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.showSoftInput(entrada, InputMethodManager.SHOW_IMPLICIT);
-                Caractateres_Correctos = 0;
-                //empiezo el timer de la prueba
-                prueba.empezar();
-                modelo.setText(prueba.nuevaPalabra(Palabras));//seteo primer palabra modelo
-            }
-            else if(comenzar.getText().equals("Siguiente")){//al hacer click en Siguiente
-                //ir a estadísticas
-                finish();
-            }
-        }
-    });
 
 
     }
@@ -108,12 +92,12 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Tempor
 
     @Override
     public void finalizar() {//se llama al finalizar el timer de prueba
+        comenzar.setText("Siguiente");
         disableEditText(entrada);
         modelo.setText(null);
         Tiempo.setText("0");
         miVel.setText(prueba.CalcularVelocidad(Caractateres_Correctos));
         miVel.setTextColor(Color.parseColor("#DE2E13"));
-        comenzar.setText("Siguiente");
     }
 
     private void disableEditText(EditText editText) {
@@ -129,6 +113,29 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Tempor
         editText.setEnabled(true);
         editText.setCursorVisible(true);
         editText.setOnKeyListener(listener);
+    }
+
+    public void empezar_siguiente (View view)
+    {
+        if(comenzar.getText().toString().equals("Siguiente")) {
+            //ir a estadísticas
+            return ;
+        }
+            entrada.setText("");
+            comenzar.setText("Reintentar");
+            enableEditText(entrada, listener);//asigno listener a la entrada
+            //deshabilito sugerencias del teclado
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(entrada, InputMethodManager.SHOW_IMPLICIT);
+            Caractateres_Correctos = 0;
+            //empiezo el timer de la prueba
+            modelo.setText(prueba.nuevaPalabra(Palabras));//seteo primer palabra modelo
+            prueba.empezar();
+    }
+
+    public void salir (View view)
+    {
+       //ir a seleccion de dificultad
     }
 
 }

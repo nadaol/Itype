@@ -45,13 +45,10 @@ public class Prueba {
     //devuelve velocidad en base a caracteres correctos
     public String CalcularVelocidad(int correctChar)
     {
-
         int Vf ,Ttranscurrido = TiempoPrueba-TiempoRestante;
-
-       if(Ttranscurrido==0) return "0";
+        if(Ttranscurrido==0) return "0";
         Vf=(60*correctChar)/(Ttranscurrido);
         return Integer.toString(Vf);
-
     }
     //Emprieza a correr la cuenta regresiva
     public void empezar()

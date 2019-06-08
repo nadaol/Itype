@@ -4,4 +4,6 @@
     <string name="Puntaje">Puntaje : </string>
     <string name="velocidad">Velocidad : </string>
     <string name="start">Comenzar!</string>
+    <string name="sig">Siguiente</string>
+    <string name="salir">Salir</string>
 </resources>
