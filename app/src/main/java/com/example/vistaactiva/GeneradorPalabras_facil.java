@@ -12,7 +12,7 @@ public class GeneradorPalabras_facil implements Comportamiento_Generador{
         int size=palabras.size();
         for(int i=0;i<3;i++)
         {
-            indice = rand.nextInt(size+1) ;
+            indice = rand.nextInt(size) ;
             if(indice<indice_aux) indice_aux=indice;
         }
         return palabras.get(indice_aux);

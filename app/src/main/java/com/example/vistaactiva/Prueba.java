@@ -6,29 +6,30 @@ import java.util.ArrayList;
 
 public class Prueba {
     private Comportamiento_Generador generador;//tipo de generador para nuevaPalabra()
-    private final ObservadorPrueba controlador;//Observador que implementa Tick() y finalizar()
+    private final Temporizador obs;//Observador que implementa Tick() y finalizar()
     private static CountDownTimer timer;//Timer para la prueba
     private int TiempoPrueba;
     private int TiempoRestante;
 
-    Prueba(final ObservadorPrueba observador, int Tiempo_Seg)
+    //clase prueba en la que se avisa al observador cada segundo la llamada de la funcion onTick y al finalizar la llamada de la funcion
+    Prueba(final Temporizador observador, int Tiempo_Seg)
     {
         TiempoPrueba=Tiempo_Seg;
         TiempoRestante=TiempoPrueba;
-        this.controlador=observador;//el controlador que implementa Tick() y finalizar() para la actualización de la vista
+        this.obs=observador;//el controlador que implementa Tick() y finalizar() para la actualización de la vista
 
         timer =new CountDownTimer(Tiempo_Seg*1000, 1000) {
             //Se llama cada vez que pasan 1000 milisegundos
             @Override
             public void onTick(long millisUntilFinished) {
                 TiempoRestante=(int)(millisUntilFinished/1000);
-                controlador.Tick(TiempoRestante);
+                obs.Tick(TiempoRestante);
             }
 
             //ejecuta instrucciones luego de que termina la cuenta regresiva
             @Override
             public void onFinish() {
-                        controlador.finalizar();
+                        obs.finalizar();
                       }
         };
     }
@@ -47,8 +48,8 @@ public class Prueba {
 
         int Vf ,Ttranscurrido = TiempoPrueba-TiempoRestante;
 
-        Vf=(60*correctChar)/(5*Ttranscurrido);
-
+       if(Ttranscurrido==0) return "0";
+        Vf=(60*correctChar)/(Ttranscurrido);
         return Integer.toString(Vf);
 
     }

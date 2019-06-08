@@ -7,21 +7,21 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Lector_texto {
-    ArrayList<String> palabras_array;
+   private ArrayList<String> lectura_lineas;
 
-    public Lector_texto(InputStream is) throws IOException {
-         palabras_array= new ArrayList<String>();
+    public Lector_texto(String path) throws IOException {
+         lectura_lineas = new ArrayList<String>();
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream(path);
         //lee El Archivo y lo coloca en un Arreglo de Strings para luego retornarlo
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
         String linea;
         while ((linea=br.readLine())!=null) {
-            palabras_array.add(linea.toLowerCase());
+            lectura_lineas.add(linea.toLowerCase());
         }
-
     }
     public ArrayList<String> getArray()
     {
-        return palabras_array;
+        return lectura_lineas;
     }
 }
 

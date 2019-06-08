@@ -12,8 +12,8 @@ public class GeneradorPalabras_Intermedio {
         int size=palabras.size();
         for(int i=0;i<3;i++)
         {
-            indice_acumulador += rand.nextInt(size+1) ;
+            indice_acumulador += rand.nextInt(size) ;
         }
-        return palabras.get((int)(indice_acumulador/4));
+        return palabras.get((int)(indice_acumulador/3));
     }
 }

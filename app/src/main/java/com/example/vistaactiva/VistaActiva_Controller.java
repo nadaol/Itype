@@ -14,7 +14,7 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public  class VistaActiva_Controller extends AppCompatActivity implements ObservadorPrueba {
+public  class VistaActiva_Controller extends AppCompatActivity implements Temporizador {
 
     private EditText entrada;
     private Lector_texto lector;//lector de texto para lectura de las palabras
@@ -30,7 +30,7 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Observ
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vista_activa);
 
-        try{lector =new Lector_texto(getAssets().open("words.txt"));}//lectura de archivo de palabras
+        try{lector =new Lector_texto("assets/words.txt");}//lectura de archivo de palabras
         catch (IOException e){e.printStackTrace();}
         Palabras = lector.getArray();//obtengo palabras
         entrada = (EditText) findViewById(R.id.Entrada_Etext);
@@ -132,10 +132,3 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Observ
     }
 
 }
-
-
-
-
-
-
-

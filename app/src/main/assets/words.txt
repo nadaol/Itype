@@ -8303,7 +8303,7 @@ satisfacer
 conciertos
 colectivos
 complicado
-antigüedad
+antiguedad
 sorprendio
 obstaculos
 contribucion
@@ -8389,7 +8389,7 @@ procesados
 largamente
 contrarios
 fascinante
-ambigüedad
+ambiguedad
 brevemente
 comenzando
 plantearse
@@ -8781,7 +8781,7 @@ conferencias
 considerando
 considerados
 rentabilidad
-nicaragüense
+nicaraguense
 credibilidad
 legisladores
 convergencia
@@ -9406,7 +9406,7 @@ trascendencia
 conservadores
 administrador
 confrontacion
-nicaragüenses
+nicaraguenses
 discrepancias
 interrogantes
 transacciones
@@ -9421,7 +9421,7 @@ centrales
 brillante
 fronteras
 comprende
-vergüenza
+verguenza
 convertir
 contraste
 compartir
@@ -9519,7 +9519,7 @@ interpretaciones
 reestructuracion
 profundidad
 procedentes
-lingüistica
+linguistica
 registraron
 reconstruir
 perfectamente
