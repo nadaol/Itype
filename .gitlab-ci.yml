@@ -57,6 +57,8 @@ debugTests:
   stage: test
   script:
     - ./gradlew -Pci --console=plain :app:testDebug
+    - cat /builds/Nadaol/typing_app/app/build/reports/tests/testDebugUnitTest/index.html
+
 
 JUnitTestjava:
   stage: test
