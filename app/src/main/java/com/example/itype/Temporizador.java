@@ -1,6 +1,6 @@
 package com.example.itype;
 
-public interface ObservadorPrueba {
+public interface Temporizador {
     public void Tick(int tiempoRestante);
     public void finalizar();
 }

@@ -1,5 +1,6 @@
 package com.example.itype;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,43 +13,44 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.app.AlertDialog;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public  class ControladorActiva extends AppCompatActivity implements ObservadorPrueba {
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+
+import static java.lang.Thread.sleep;
+
+public  class ControladorActiva extends AppCompatActivity implements Temporizador {
 
     private EditText entrada;
-    private LectorTexto lector;//lector de texto para lectura de las palabras
+    private Button salir;
+    private Button comenzar;
+    private Lector_texto lector;//lector de texto para lectura de las palabras
     private Prueba prueba;//objeto Prueba en background el cual avisa actualizaciones de vista
     private ArrayList<String> Palabras;//lista de 10000 palabras
     private static TextView modelo,Tiempo,miVel;
-    private Button comenzar;
     private final int TiempoPrueba_Seg = 30;
     private static int Caractateres_Correctos=0;
-
-    private String dificultad_juego;
+    private View.OnKeyListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vista_activa);
 
-        Bundle b = getIntent().getExtras();
-        String dificultad_juego = b.getString("dificultad");
-
-
-        try{lector =new LectorTexto(getAssets().open("words.txt"));}//lectura de archivo de palabras
+        try{lector =new Lector_texto("assets/words.txt");}//lectura de archivo de palabras
         catch (IOException e){e.printStackTrace();}
         Palabras = lector.getArray();//obtengo palabras
-        entrada = (EditText) findViewById(R.id.editText_vActivaEntrada);
-        Tiempo = (TextView) findViewById(R.id.textView_vActivaTiempo);
-        miVel = (TextView) findViewById(R.id.textView_vActivaVelocidad);
-        comenzar = (Button) findViewById(R.id.button_vActivaComenzar);
-        modelo = (TextView) findViewById(R.id.textView_vActivaPalabraModelo);
+        entrada = (EditText) findViewById(R.id.Entrada_Etext);
+        modelo = (TextView) findViewById(R.id.Palabra_modelo);
+        Tiempo = (TextView) findViewById(R.id.Tiempo_Tview);
+        miVel = (TextView) findViewById(R.id.velocidad_Tview);
+        comenzar = (Button) findViewById(R.id.comenzar_btn);
+        salir = (Button) findViewById(R.id.salir_btn);
 
-        comenzar.setText("Empezar!");
+        comenzar.setText("Comenzar!");
         miVel.setTextColor(Color.parseColor("#000000"));
         miVel.setText("0");
         Tiempo.setText(Integer.toString(TiempoPrueba_Seg));
@@ -56,23 +58,10 @@ public  class ControladorActiva extends AppCompatActivity implements ObservadorP
         prueba = new Prueba(this,TiempoPrueba_Seg);
         //seteo la generacion de palabras del objeto prueba
         //---pasar dificultad de vista seleccion---
-
-        switch (dificultad_juego) {
-            case "Facil":
-                prueba.setGenerador(new GeneradorPalabrasFacil());
-                break;
-
-            case "Media":
-                prueba.setGenerador(new GeneradorPalabrasMedia());
-                break;
-
-            case "Dificil":
-                prueba.setGenerador(new GeneradorPalabrasDificil());
-                break;
-        }
+        prueba.setGenerador(new GeneradorPalabras_dificil());
 
         //creo objeto listenter para manejo de deteccion de palabras
-        final View.OnKeyListener listener = new View.OnKeyListener() {
+        listener = new View.OnKeyListener() {
             //Este metodo captura eventos del teclado tactil
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -100,25 +89,6 @@ public  class ControladorActiva extends AppCompatActivity implements ObservadorP
                 return true;}
         };
 
-        comenzar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(comenzar.getText().equals("Empezar!")) {//al hacer click en Empezar!
-                    enableEditText(entrada,listener);//asigno listener a la entrada
-                    //deshabilito sugerencias del teclado
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.showSoftInput(entrada, InputMethodManager.SHOW_IMPLICIT);
-                    Caractateres_Correctos = 0;
-                    //empiezo el timer de la prueba
-                    prueba.empezar();
-                    modelo.setText(prueba.nuevaPalabra(Palabras));//seteo primer palabra modelo
-                }
-                else if(comenzar.getText().equals("Siguiente")){//al hacer click en Siguiente
-                    irEstadisticas();
-                    finish();
-                }
-            }
-        });
 
 
     }
@@ -131,12 +101,12 @@ public  class ControladorActiva extends AppCompatActivity implements ObservadorP
 
     @Override
     public void finalizar() {//se llama al finalizar el timer de prueba
+        comenzar.setText("Siguiente");
         disableEditText(entrada);
         modelo.setText(null);
         Tiempo.setText("0");
         miVel.setText(prueba.CalcularVelocidad(Caractateres_Correctos));
         miVel.setTextColor(Color.parseColor("#DE2E13"));
-        comenzar.setText("Siguiente");
     }
 
     private void disableEditText(EditText editText) {
@@ -154,12 +124,42 @@ public  class ControladorActiva extends AppCompatActivity implements ObservadorP
         editText.setOnKeyListener(listener);
     }
 
-    public void regresoMenu () {
-        Intent i = new Intent(this, ControladorMenuPrincipal.class);
-         startActivity(i);
+    public void empezar_siguiente (View view)
+    {
+        if(comenzar.getText().toString().equals("Siguiente")) {
+            Intent i = new Intent(getApplicationContext(), ControladorPuestos.class);
+            startActivity(i);
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder().url("ws://192.168.0.21:8080").build();
+            client.newWebSocket(request,WebSocketConnection.getInstance());//creo una conexion por webSocket
+            client.dispatcher().executorService().shutdown();
+            try{
+                sleep(100);
+               String vel = miVel.getText().toString();
+                if (vel!=null)WebSocketConnection.enviar(Usuario.getName()+","+vel);//requiere conexion con servidor local,debería enviar la velocidad al terminar la prueba
+            }
+            catch(Exception e){e.printStackTrace();}
+            finish();
+            return;
+        }
+            entrada.setText("");
+            comenzar.setText("Reintentar");
+            enableEditText(entrada, listener);//asigno listener a la entrada
+            //deshabilito sugerencias del teclado
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(entrada, InputMethodManager.SHOW_IMPLICIT);
+            Caractateres_Correctos = 0;
+            //empiezo el timer de la prueba
+            modelo.setText(prueba.nuevaPalabra(Palabras));//seteo primer palabra modelo
+            prueba.empezar();
     }
-    public void mostrarMensajeSalida(View view) {
 
+
+
+    public void salir (View view)
+    {
+       //ir a seleccion de dificultad
+        prueba.pause();
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("¿Desea regresar a menú principal?");
         builder.setMessage("Se perderá el progreso de la partida");
@@ -174,28 +174,16 @@ public  class ControladorActiva extends AppCompatActivity implements ObservadorP
             @Override
             public void onClick(DialogInterface dialogInterface, int i){
                 dialogInterface.dismiss();
-                onResume();
+                prueba.resume();
             }
         });
         AlertDialog dialog = builder.create();
-        onPause();
         dialog.show();
     }
 
-    public void irEstadisticas(){
-        //Intent i = new Intent(this, ControladorEstadisticas.class);
-        //startActivity(i);
+    public void regresoMenu () {
+        //  Intent i = new Intent(this, ControladorVistaMenuPrincipal.class);
+        //  startActivity(i);
     }
 
-    @Override
-    public void onBackPressed() {
-    }
 }
-
-
-
-
-
-
-
-

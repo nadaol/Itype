@@ -25,7 +25,7 @@ public class ControladorSeleccionNivel extends AppCompatActivity implements View
     }
 
     public void iniciarJuego (String dificultad_juego){
-        Intent i = new Intent(this, ControladorActiva.class);
+        Intent i = new Intent(this,ControladorActiva.class);
         i.putExtra("dificultad",dificultad_juego);
         startActivity(i);
     }

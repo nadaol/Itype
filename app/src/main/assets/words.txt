@@ -46,7 +46,6 @@ quiere
 diario
 juicio
 aceite
-añadio
 ataque
 siguio
 abuela
@@ -72,7 +71,6 @@ emitio
 iraqui
 acaba
 xviii
-otoño
 ayala
 amada
 amaba
@@ -112,7 +110,6 @@ fuese
 papa
 posee
 papa
-añade
 exige
 pausa
 anual
@@ -304,7 +301,6 @@ exito
 miedo
 ideas
 fuego
-sueño
 junio
 debia
 cielo
@@ -339,7 +335,6 @@ vuelo
 feria
 rueda
 creia
-dueño
 rusia
 suave
 dieta
@@ -426,7 +421,6 @@ sucia
 roque
 viera
 agudo
-dueña
 movia
 orina
 viajo
@@ -453,7 +447,6 @@ soria
 mejia
 alude
 suizo
-liaño
 louis
 celia
 anexo
@@ -509,7 +502,6 @@ estatua
 referia
 higiene
 asistio
-añadido
 ayudado
 armario
 rodeada
@@ -630,7 +622,6 @@ deje
 seas
 vaca
 ente
-caña
 rene
 sana
 tapa
@@ -654,7 +645,6 @@ homo
 data
 lata
 maya
-coño
 raya
 ejes
 opto
@@ -802,12 +792,10 @@ reunion
 iglesia
 america
 escuela
-pequeño
 materia
 memoria
 periodo
 ocasion
-pequeña
 palacio
 guardia
 aquello
@@ -1007,7 +995,6 @@ reunieron
 ordinario
 pareciera
 ordinaria
-mañana
 camara
 pasada
 acabar
@@ -1048,7 +1035,6 @@ navaja
 teniente
 pero
 esta
-años
 esta
 bien
 vida
@@ -1098,7 +1084,6 @@ hijo
 base
 alto
 arte
-niño
 cabo
 diez
 esta
@@ -1136,11 +1121,9 @@ isla
 cafe
 pena
 pies
-doña
 sale
 copa
 cualquiera
-niña
 frio
 nota
 fase
@@ -1181,7 +1164,6 @@ supo
 gano
 moda
 raiz
-baño
 paro
 roja
 poca
@@ -1197,7 +1179,6 @@ hice
 vaso
 puro
 pase
-daño
 usar
 cena
 sida
@@ -1248,7 +1229,6 @@ joan
 nace
 vega
 siga
-peña
 echo
 puta
 fina
@@ -1311,7 +1291,6 @@ tubo
 puse
 alex
 mato
-uñas
 olga
 dejo
 come
@@ -1353,7 +1332,6 @@ hola
 autonomica
 cuna
 cano
-leña
 deba
 ramo
 pedi
@@ -1361,7 +1339,6 @@ tuya
 cima
 unir
 tiro
-puño
 asco
 temo
 tome
@@ -1482,7 +1459,6 @@ poetica
 viajero
 euskadi
 querida
-pañuelo
 aumento
 ofrecia
 suponia
@@ -1543,7 +1519,6 @@ acelerar
 dividida
 estaba
 ademas
-españa
 pasado
 pueden
 ciudad
@@ -1602,12 +1577,10 @@ esposa
 enorme
 ofrece
 sabado
-señala
 tienes
 empezo
 afirma
 recien
-tamaño
 debate
 barrio
 cocina
@@ -1652,7 +1625,6 @@ opcion
 puedes
 espejo
 puente
-sueños
 sintio
 indice
 indios
@@ -1692,7 +1664,6 @@ cuarta
 dioses
 bogota
 espero
-añadir
 corona
 huesos
 obispo
@@ -1780,7 +1751,6 @@ africa
 esfera
 vuelva
 dedico
-empeño
 africa
 creada
 masiva
@@ -1862,7 +1832,6 @@ sonora
 salian
 romana
 abrazo
-enseña
 severo
 operar
 debida
@@ -1914,8 +1883,6 @@ ajenas
 maleta
 picada
 ulises
-antaño
-enseño
 comoda
 carajo
 canela
@@ -2340,7 +2307,6 @@ elevadas
 anunciar
 defendio
 querella
-acompaño
 empleada
 baleares
 estetico
@@ -2534,8 +2500,6 @@ puerto
 vuelta
 prueba
 asunto
-señora
-señalo
 muerto
 estilo
 afirmo
@@ -2572,7 +2536,6 @@ podian
 siento
 quince
 venido
-diseño
 sexual
 labios
 huelga
@@ -2648,7 +2611,6 @@ tejido
 decian
 quinta
 pelota
-cariño
 caribe
 sienta
 acudir
@@ -2699,7 +2661,6 @@ admite
 ruedas
 alumno
 camion
-dueños
 utiles
 oculta
 orejas
@@ -2732,7 +2693,6 @@ acidos
 grueso
 ritual
 ligera
-coruña
 eramos
 exacto
 adulto
@@ -2776,11 +2736,9 @@ unicas
 hierba
 niebla
 colera
-engaño
 raquel
 unanimidad
 supero
-muñeca
 olvida
 vencio
 cielos
@@ -2822,14 +2780,12 @@ vacios
 tierno
 genial
 animos
-puñado
 puebla
 expuso
 legado
 acuden
 gremio
 tributaria
-ibañez
 criado
 masivo
 operan
@@ -2858,7 +2814,6 @@ helado
 comuna
 espuma
 casino
-cuñado
 lienzo
 jubilo
 repito
@@ -2897,7 +2852,6 @@ unificacion
 impaciencia
 asamblea
 evidente
-cataluña
 division
 reciente
 elemento
@@ -2918,7 +2872,6 @@ virginia
 extiende
 dimision
 elegante
-acompaña
 catalina
 aprobada
 indicios
@@ -2931,7 +2884,6 @@ aplicada
 examenes
 colorado
 bancaria
-señalaba
 farmacia
 afirmaba
 ensalada
@@ -3024,7 +2976,6 @@ gobierno
 politica
 historia
 sociedad
-española
 servicio
 especial
 anterior
@@ -3038,7 +2989,6 @@ estudios
 superior
 objetivo
 silencio
-compañia
 acciones
 ambiente
 ejercito
@@ -3055,7 +3005,6 @@ hicieron
 imagenes
 paciente
 espiritu
-pequeños
 colombia
 ciudades
 necesita
@@ -3065,7 +3014,6 @@ utilizar
 medicina
 valencia
 busqueda
-pequeñas
 noticias
 reaccion
 recibido
@@ -3145,7 +3093,6 @@ desierto
 relativa
 espacial
 agricola
-señalado
 efectivo
 encuesta
 variable
@@ -3267,7 +3214,6 @@ favorito
 situados
 menciona
 teoricos
-diseñado
 pudiendo
 american
 liquidos
@@ -3364,7 +3310,6 @@ inmueble
 opresion
 acuerdas
 agresiva
-enseñado
 volviera
 travesia
 comunica
@@ -3574,7 +3519,6 @@ ponen
 matar
 motor
 critico
-señores
 trato
 pense
 creen
@@ -3622,7 +3566,6 @@ salinas
 hagan
 socialismo
 bella
-señales
 acceder
 daban
 ruptura
@@ -3834,7 +3777,6 @@ lealtad
 velez
 misterioso
 relleno
-señas
 atletas
 hagas
 verle
@@ -4023,7 +3965,6 @@ cientifica
 individuos
 definicion
 individual
-acompañado
 vigilancia
 reconocido
 sacrificio
@@ -4057,7 +3998,6 @@ crecer
 ninguna
 dificil
 palabra
-campaña
 ninguno
 catalan
 armadas
@@ -4090,7 +4030,6 @@ mascara
 deberes
 prologo
 matanza
-mañanas
 meterse
 sagrada
 lampara
@@ -4114,7 +4053,6 @@ localizacion
 actividad
 alrededor
 verdadero
-enseñanza
 totalidad
 localidad
 fenomenos
@@ -4267,7 +4205,6 @@ expediente
 periodismo
 policiales
 mencionado
-señorita
 estaciones
 religiosas
 almuerzo
@@ -4289,7 +4226,6 @@ peculiar
 despacio
 geografica
 diametro
-acompañada
 camiones
 viajeros
 solicitado
@@ -4374,7 +4310,6 @@ excitacion
 ocurriendo
 aprendio
 misteriosa
-acompañaba
 multimedia
 desigual
 interesaba
@@ -4546,7 +4481,6 @@ implica
 liberal
 interno
 dientes
-señalar
 dolores
 fracaso
 haberse
@@ -4560,7 +4494,6 @@ escribe
 deberan
 aplicar
 poderes
-montaña
 civiles
 moderno
 fiestas
@@ -4572,7 +4505,6 @@ clasico
 ernesto
 cuentan
 cerrado
-extraña
 radical
 tomando
 ponerse
@@ -4649,7 +4581,6 @@ bosques
 cadenas
 vigente
 extrema
-bretaña
 supongo
 entrego
 incapaz
@@ -4701,7 +4632,6 @@ holanda
 serrano
 tarifas
 comedor
-señalan
 felices
 cabello
 ganador
@@ -4812,7 +4742,6 @@ eventos
 brigada
 dandole
 rodilla
-enseñar
 piscina
 monarca
 carlota
@@ -4834,7 +4763,6 @@ futuras
 pizarro
 semilla
 musculo
-señoras
 trazado
 dejaban
 pedirle
@@ -4867,7 +4795,6 @@ urbanas
 desfile
 dispuso
 fosiles
-escaños
 condujo
 corbata
 vendido
@@ -4891,7 +4818,6 @@ poblado
 ajedrez
 perfume
 salones
-ordoñez
 hacerla
 bajando
 abrirse
@@ -4935,7 +4861,6 @@ recogen
 montero
 mistica
 textura
-diseños
 ponemos
 dedicar
 materna
@@ -5006,12 +4931,10 @@ vigilar
 saludar
 pagando
 relojes
-engañar
 tipicos
 toxicos
 estampa
 turista
-tamaños
 expreso
 principio
 intereses
@@ -5165,7 +5088,6 @@ nivel
 largo
 hemos
 algun
-señor
 claro
 orden
 libro
@@ -5176,7 +5098,6 @@ campo
 saber
 obras
 razon
-niños
 estoy
 direccion
 demas
@@ -5206,7 +5127,6 @@ salir
 respuesta
 favor
 clase
-españoles
 encuentro
 tomar
 lucha
@@ -5340,7 +5260,6 @@ disco
 artes
 venir
 accidente
-españolas
 sentencia
 entidades
 cuyas
@@ -5373,7 +5292,6 @@ colectivo
 solar
 corta
 viviendas
-señal
 concierto
 dejan
 manifiesto
@@ -5435,13 +5353,11 @@ plato
 monte
 salen
 pujol
-daños
 salto
 gutierrez
 moscu
 estabamos
 surge
-muñoz
 comentario
 coste
 ronda
@@ -5500,14 +5416,12 @@ represion
 liberales
 crema
 filas
-nuñez
 balon
 hijas
 arquitecto
 americanos
 ramos
 felix
-niñas
 britanica
 pagos
 caldo
@@ -5776,7 +5690,6 @@ harto
 confesion
 concluido
 jones
-niñez
 sirva
 mensuales
 creadores
@@ -5800,7 +5713,6 @@ sonriendo
 indicaron
 lapso
 militante
-soñar
 velas
 positivas
 reservado
@@ -5820,7 +5732,6 @@ extendido
 multa
 bares
 tomas
-baños
 prosa
 angustias
 siniestro
@@ -5950,7 +5861,6 @@ vocal
 botin
 debut
 devolucion
-cañon
 sintiendo
 enmiendas
 meditacion
@@ -6173,11 +6083,9 @@ coherente
 catalunya
 dramatica
 relevante
-acompañar
 encargada
 irregular
 dedicados
-desempeño
 funcionan
 garantiza
 electores
@@ -6186,7 +6094,6 @@ setiembre
 cartagena
 desenlace
 magdalena
-acompañan
 primitivo
 regimenes
 alejandra
@@ -6257,7 +6164,6 @@ incluso
 publico
 segundo
 mercado
-español
 segunda
 persona
 ultimos
@@ -6327,7 +6233,6 @@ privado
 credito
 musical
 directo
-extraño
 cuadros
 formula
 olvidar
@@ -6578,7 +6483,6 @@ vocales
 vertigo
 vendria
 replica
-diseñar
 muertas
 infarto
 influye
@@ -6661,7 +6565,6 @@ intervenir
 refugiados
 caracteres
 instancias
-enseñanzas
 educativos
 secundario
 verdaderas
@@ -6792,11 +6695,9 @@ continuar
 convierte
 depresion
 impuestos
-compañero
 redaccion
 numerosas
 esperando
-compañias
 embajador
 reflexion
 mecanismo
@@ -6883,11 +6784,9 @@ planteado
 integrada
 estimulos
 titulares
-señalando
 inclusive
 desprecio
 radicales
-madrileña
 aventuras
 delantero
 nucleares
@@ -6900,7 +6799,6 @@ comenzaba
 arzobispo
 puramente
 volumenes
-compañera
 ambientes
 jerusalen
 magnifico
@@ -6931,7 +6829,6 @@ campeones
 maniobras
 masculina
 portugues
-señalaron
 designado
 negativas
 domestico
@@ -6973,7 +6870,6 @@ consiguen
 procesion
 admirable
 terminada
-brasileña
 miserable
 calientes
 protegido
@@ -7292,7 +7188,6 @@ naturalidad
 ministerios
 incorporado
 antepasados
-acompañados
 profesorado
 maravillosa
 reconocidos
@@ -7678,7 +7573,6 @@ pretende
 recordar
 mercedes
 trabajan
-campañas
 densidad
 fantasma
 rebeldes
@@ -7732,10 +7626,8 @@ tranquilo
 conquista
 descubrio
 integrado
-brasileño
 deportiva
 exclusiva
-madrileño
 capitulos
 dominguez
 masculino
@@ -7973,7 +7865,6 @@ transito
 confirmo
 levantar
 tristeza
-montañas
 cristina
 rodillas
 sentidos
@@ -8050,7 +7941,6 @@ practico
 promesas
 advertir
 disparos
-monseñor
 insectos
 banderas
 externos
@@ -8114,7 +8004,6 @@ vencedor
 mejillas
 fraccion
 descarga
-extrañas
 terminan
 tremendo
 plastica
@@ -8136,7 +8025,6 @@ formular
 provecho
 proceden
 creyendo
-entrañas
 traslado
 consigna
 sentimos
@@ -8303,7 +8191,7 @@ satisfacer
 conciertos
 colectivos
 complicado
-antigüedad
+antiguedad
 sorprendio
 obstaculos
 contribucion
@@ -8389,7 +8277,7 @@ procesados
 largamente
 contrarios
 fascinante
-ambigüedad
+ambiguedad
 brevemente
 comenzando
 plantearse
@@ -8498,7 +8386,6 @@ prolongado
 controlado
 gravemente
 reproducir
-desempeñar
 electrones
 dispuestas
 caracteristica
@@ -8781,7 +8668,7 @@ conferencias
 considerando
 considerados
 rentabilidad
-nicaragüense
+nicaraguense
 credibilidad
 legisladores
 convergencia
@@ -8848,7 +8735,6 @@ publicos
 publicas
 parlamento
 constituye
-compañeros
 convertido
 hermanos
 documentos
@@ -8953,7 +8839,6 @@ confirma
 competir
 sargento
 progresiva
-extraños
 publicar
 palestinos
 britanicos
@@ -9281,7 +9166,6 @@ documental
 discriminacion
 ford
 contribuye
-cumpleaños
 preguntado
 productiva
 cinematografica
@@ -9301,7 +9185,6 @@ vinculados
 publicados
 rtve
 prestacion
-madrileños
 inversionistas
 conquistar
 construida
@@ -9406,7 +9289,7 @@ trascendencia
 conservadores
 administrador
 confrontacion
-nicaragüenses
+nicaraguenses
 discrepancias
 interrogantes
 transacciones
@@ -9421,7 +9304,7 @@ centrales
 brillante
 fronteras
 comprende
-vergüenza
+verguenza
 convertir
 contraste
 compartir
@@ -9519,7 +9402,7 @@ interpretaciones
 reestructuracion
 profundidad
 procedentes
-lingüistica
+linguistica
 registraron
 reconstruir
 perfectamente

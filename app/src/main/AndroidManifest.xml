@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.itype">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:usesCleartextTraffic="true"
@@ -15,8 +16,8 @@
         <activity android:name="com.example.itype.ControladorMenuPrincipal"/>
         <activity android:name="com.example.itype.ControladorSeleccionNivel"/>
         <activity android:name="com.example.itype.ControladorActiva"/>
-
-
+        <activity android:name="com.example.itype.ControladorPuestos"/>
+        <activity android:name="com.example.itype.ControladorPerfil"/>
         <activity android:name="com.example.itype.ControladorInicioSesion">
         <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

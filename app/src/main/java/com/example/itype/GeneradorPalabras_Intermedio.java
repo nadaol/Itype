@@ -3,7 +3,7 @@ package com.example.itype;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class GeneradorPalabrasMedia implements GeneradorComportamiento{
+public class GeneradorPalabras_Intermedio {
     //devuelve la palabra con dificultad promedio de 3 seleccionadas al azar
     public String generar(ArrayList<String> palabras)
     {
@@ -12,8 +12,8 @@ public class GeneradorPalabrasMedia implements GeneradorComportamiento{
         int size=palabras.size();
         for(int i=0;i<3;i++)
         {
-            indice_acumulador += rand.nextInt(size+1) ;
+            indice_acumulador += rand.nextInt(size) ;
         }
-        return palabras.get((int)(indice_acumulador/4));
+        return palabras.get((int)(indice_acumulador/3));
     }
 }
