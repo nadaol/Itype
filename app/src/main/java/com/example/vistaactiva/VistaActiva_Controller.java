@@ -1,6 +1,8 @@
 package com.example.vistaactiva;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -136,6 +138,31 @@ public  class VistaActiva_Controller extends AppCompatActivity implements Tempor
     public void salir (View view)
     {
        //ir a seleccion de dificultad
+        prueba.pause();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("¿Desea regresar a menú principal?");
+        builder.setMessage("Se perderá el progreso de la partida");
+        builder.setPositiveButton("Si. Regresar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i){
+                finish();
+                regresoMenu();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i){
+                dialogInterface.dismiss();
+                prueba.resume();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void regresoMenu () {
+        //  Intent i = new Intent(this, ControladorVistaMenuPrincipal.class);
+        //  startActivity(i);
     }
 
 }

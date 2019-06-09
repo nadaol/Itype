@@ -8,30 +8,14 @@ public class Prueba {
     private Comportamiento_Generador generador;//tipo de generador para nuevaPalabra()
     private final Temporizador obs;//Observador que implementa Tick() y finalizar()
     private static CountDownTimer timer;//Timer para la prueba
-    private int TiempoPrueba;
+    private final int TiempoPrueba;
     private int TiempoRestante;
 
     //clase prueba en la que se avisa al observador cada segundo la llamada de la funcion onTick y al finalizar la llamada de la funcion
-    Prueba(final Temporizador observador, int Tiempo_Seg)
+    public Prueba(final Temporizador observador,int Tiempo_Seg)
     {
         TiempoPrueba=Tiempo_Seg;
-        TiempoRestante=TiempoPrueba;
         this.obs=observador;//el controlador que implementa Tick() y finalizar() para la actualización de la vista
-
-        timer =new CountDownTimer(Tiempo_Seg*1000, 1000) {
-            //Se llama cada vez que pasan 1000 milisegundos
-            @Override
-            public void onTick(long millisUntilFinished) {
-                TiempoRestante=(int)(millisUntilFinished/1000);
-                obs.Tick(TiempoRestante);
-            }
-
-            //ejecuta instrucciones luego de que termina la cuenta regresiva
-            @Override
-            public void onFinish() {
-                        obs.finalizar();
-                      }
-        };
     }
 
     public void setGenerador(Comportamiento_Generador generador) {
@@ -50,9 +34,30 @@ public class Prueba {
         Vf=(60*correctChar)/(Ttranscurrido);
         return Integer.toString(Vf);
     }
-    //Emprieza a correr la cuenta regresiva
+    public void pause(){timer.cancel();};
+    public void resume(){empezar2(TiempoRestante);};
+    //Emprieza a correr la cuenta regresiva de 'TiempoPrueba' segundos
     public void empezar()
     {
-        timer.start();
+        empezar2(TiempoPrueba);
+    }
+    //Emprieza a correr la cuenta regresiva especificando la duracion
+    private void empezar2(int Tiempo_Seg)
+    {
+        timer =new CountDownTimer(Tiempo_Seg*1000, 1000) {
+            //Se llama cada vez que pasan 1000 milisegundos
+            @Override
+            public void onTick(long millisUntilFinished) {
+                TiempoRestante=(int)(millisUntilFinished/1000);
+                obs.Tick(TiempoRestante);
+            }
+
+            //ejecuta instrucciones luego de que termina la cuenta regresiva
+            @Override
+            public void onFinish() {
+                obs.finalizar();
+            }
+
+        }.start();
     }
 }
