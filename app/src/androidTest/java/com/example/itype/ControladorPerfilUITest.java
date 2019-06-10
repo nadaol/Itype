@@ -1,9 +1,11 @@
-package com.example.vistaactiva;
+package com.example.itype;
 
-import android.support.test.rule.ActivityTestRule;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
 import org.junit.Before;
@@ -13,12 +15,12 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class Perfil_ControllerTest {
+public class ControladorPerfilUITest {
 
     @Rule
-    public ActivityTestRule<Perfil_Controller> TestRule=new ActivityTestRule<Perfil_Controller>(Perfil_Controller.class);
+    public ActivityTestRule<ControladorPerfil> TestRule=new ActivityTestRule<ControladorPerfil>(ControladorPerfil.class);
 
-    private Perfil_Controller activity = null;
+    private ControladorPerfil activity = null;
 
     @Before
     public void setUp() throws Exception {
@@ -64,7 +66,7 @@ public class Perfil_ControllerTest {
     public void ContenidoBotones()
     {
         Button btn = activity.findViewById(R.id.volver_btn);
-        assertEquals("Volver a jugar",btn.getText().toString());
+        assertEquals("MENÚ PRINCIPAL",btn.getText().toString());
         btn = activity.findViewById(R.id.salir_btn);
         assertEquals("Salir",btn.getText().toString());
     }

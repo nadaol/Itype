@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class Prueba_VistaActiva {
+public class ControladorActivaUITest {
     private final int time = 30;
 
     @Rule

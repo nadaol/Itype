@@ -7,17 +7,11 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-
 import androidx.test.rule.ActivityTestRule;
-
-import com.example.itype.ControladorActiva;
-import com.example.itype.R;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -25,15 +19,15 @@ import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentat
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class Puestos_ControllerTest {
+public class ControladorPuestosUITest {
 
 
     @Rule
-    public ActivityTestRule<ControladorActiva> TestRule=new ActivityTestRule<ControladorActiva>(ControladorActiva.class);
+    public ActivityTestRule<ControladorPuestos> TestRule=new ActivityTestRule<ControladorPuestos>(ControladorPuestos.class);
 
-    private ControladorActiva activity = null;
+    private ControladorPuestos activity = null;
 
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(ControladorActiva.class.getName(),null,false);
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(ControladorPuestos.class.getName(),null,false);
 
     @Before
     public void setUp() throws Exception {
@@ -92,7 +86,7 @@ public class Puestos_ControllerTest {
     public void ContenidoBotones()
     {
         Button btn = activity.findViewById(R.id.volver_btn);
-        assertEquals("Volver a jugar",btn.getText().toString());
+        assertEquals("MENÚ PRINCIPAL",btn.getText().toString());
         btn = activity.findViewById(R.id.siguiente_btn);
         assertEquals("Siguiente",btn.getText().toString());
     }

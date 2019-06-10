@@ -47,6 +47,7 @@
         android:layout_height="150dp"
         android:layout_marginTop="90dp"
         android:layout_marginBottom="503dp"
+        android:alpha="0.65"
         android:contentDescription="@string/descript_logo"
         android:src="@drawable/itype_logo"
         app:layout_constraintBottom_toBottomOf="parent"

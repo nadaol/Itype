@@ -13,10 +13,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import java.io.IOException;
 import java.util.ArrayList;
-
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
@@ -60,9 +58,11 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
         //---pasar dificultad de vista seleccion---
         Intent intent = getIntent();
         String dificultad = intent.getStringExtra("dificultad");
+        if(dificultad!=null){
         if(dificultad.equals("Facil")) prueba.setGenerador(new GeneradorPalabras_facil());
         else if(dificultad.equals("Media")) prueba.setGenerador(new GeneradorPalabras_Intermedio());
-        else if(dificultad.equals("Dificil")) prueba.setGenerador(new GeneradorPalabras_dificil());
+        else if(dificultad.equals("Dificil")) prueba.setGenerador(new GeneradorPalabras_dificil());}
+        else prueba.setGenerador(new GeneradorPalabras_facil());
 
         //creo objeto listenter para manejo de deteccion de palabras
         listener = new View.OnKeyListener() {

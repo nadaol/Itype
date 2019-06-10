@@ -1,8 +1,10 @@
-package com.example.vistaactiva;
+package com.example.itype;
 
 import org.junit.Test;
+
 import java.util.ArrayList;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertTrue;
 
 public class Prueba_GeneradorPalabras {
 
