@@ -1,4 +1,4 @@
-package com.example.vistaactiva;
+package com.example.itype;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
