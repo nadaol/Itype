@@ -8,6 +8,8 @@ import org.junit.runners.MethodSorters;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static junit.framework.TestCase.assertNotNull;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class Lector_textoTest {
@@ -19,13 +21,13 @@ public class Lector_textoTest {
     @Before
     public void Prueba1_Creacion_Lector() throws IOException {
         lector = new Lector_texto("words.txt");
-       // assertNotNull(lector);
+        assertNotNull(lector);
     }
 
     @Test
     public void Prueba2_LecturaPalabras() {
             lectura =lector.getArray();
-         //   assertNotNull(lectura);
+         assertNotNull(lectura);
     }
 
 }
