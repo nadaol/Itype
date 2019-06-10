@@ -1,5 +1,7 @@
 package com.example.itype;
 
+import android.widget.Toast;
+
 //Clase única(singleton)para almacenar y gestionar datos del usuario
 public class Usuario {
 
@@ -32,6 +34,10 @@ public class Usuario {
 
     public static String login(String Name, String Password) throws Exception
     {
+        if( Usuario.validacion_entrada(Name)==false || Usuario.validacion_entrada(Password)==false)
+        {
+            return "Campos vacíos, caracteres especiales o espacios. Ingrese solo letras o numeros";
+        }
         if(usuario==null){usuario=new Usuario();}
         Http_Post request = new Http_Post();//nueva conexion post para validar el login
         String result = request.execute("http://itype.ml/login.php","user",Name,"password",Password).get();
@@ -40,11 +46,15 @@ public class Usuario {
             Contraseña = Password;
             return "Inicio correcto,Bienvenido "+Name;
         }
-        return "Usuario o contraseña inválidos";
+        return "Usuario o contraseña incorrectos";
     }
 
     public static String registrar(String Name, String Password) throws Exception
     {
+        if( Usuario.validacion_entrada(Name)==false || Usuario.validacion_entrada(Password)==false)
+        {
+            return "Campos vacíos, caracteres especiales o espacios. Ingrese solo letras o numeros";
+        }
         Http_Post request = new Http_Post();//nueva conexión post para registrar usuario
         String result = request.execute("http://itype.ml/register.php","user",Name,"password",Password).get();
         if(result.contains("Success")) return "Registro correcto. Inicie nuevamente";

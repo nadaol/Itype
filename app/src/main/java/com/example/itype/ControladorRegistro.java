@@ -21,11 +21,6 @@ public class ControladorRegistro extends Activity {
 
     public void userReg(View view) throws Exception {
 
-        if( Usuario.validacion_entrada(Username_et.getText().toString())==false || Usuario.validacion_entrada(Password_et.getText().toString())==false)
-        {
-            Toast.makeText(this, "Campos vacíos, caracteres especiales o espacios. Ingrese solo letras o numeros", Toast.LENGTH_LONG).show();
-            return;
-        }
             try {
                 String log = Usuario.registrar(Username_et.getText().toString(), Password_et.getText().toString());
                 Toast.makeText(getApplicationContext(), log, Toast.LENGTH_LONG).show();

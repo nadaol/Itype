@@ -58,7 +58,11 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
         prueba = new Prueba(this,TiempoPrueba_Seg);
         //seteo la generacion de palabras del objeto prueba
         //---pasar dificultad de vista seleccion---
-        prueba.setGenerador(new GeneradorPalabras_dificil());
+        Intent intent = getIntent();
+        String dificultad = intent.getStringExtra("dificultad");
+        if(dificultad.equals("Facil")) prueba.setGenerador(new GeneradorPalabras_facil());
+        else if(dificultad.equals("Media")) prueba.setGenerador(new GeneradorPalabras_Intermedio());
+        else if(dificultad.equals("Dificil")) prueba.setGenerador(new GeneradorPalabras_dificil());
 
         //creo objeto listenter para manejo de deteccion de palabras
         listener = new View.OnKeyListener() {
@@ -134,7 +138,7 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
             client.newWebSocket(request,WebSocketConnection.getInstance());//creo una conexion por webSocket
             client.dispatcher().executorService().shutdown();
             try{
-                sleep(100);
+                sleep(400);
                String vel = miVel.getText().toString();
                 if (vel!=null)WebSocketConnection.enviar(Usuario.getName()+","+vel);//requiere conexion con servidor local,debería enviar la velocidad al terminar la prueba
             }
@@ -156,7 +160,7 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
 
 
 
-    public void salir (View view)
+    public void MenuPrincipal (View view)
     {
        //ir a seleccion de dificultad
         prueba.pause();
@@ -182,8 +186,8 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
     }
 
     public void regresoMenu () {
-        //  Intent i = new Intent(this, ControladorVistaMenuPrincipal.class);
-        //  startActivity(i);
+        Intent i = new Intent(this, ControladorMenuPrincipal.class);
+        startActivity(i);
     }
 
 }

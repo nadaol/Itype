@@ -107,7 +107,7 @@ public class ControladorInicioSesionUITest {
         onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());
         onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText(contraRegistrado),closeSoftKeyboard());
         onView(withId(R.id.button_vInicioIngresar)).perform(click());
-        onView(withText("Ingreso correcto")).inRoot(withDecorView(not(is(reglaActividad.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
+        onView(withText("Inicio correcto,Bienvenido "+usuarioRegistrado)).inRoot(withDecorView(not(is(reglaActividad.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
     }
 
     @Test

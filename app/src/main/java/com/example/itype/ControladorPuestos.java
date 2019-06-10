@@ -80,4 +80,10 @@ public class ControladorPuestos extends AppCompatActivity implements Observador 
 
     }
 
+    public void MenuPrincipal(View view)
+    {
+        Intent i = new Intent(this, ControladorMenuPrincipal.class);
+        startActivity(i);
+    }
+
 }

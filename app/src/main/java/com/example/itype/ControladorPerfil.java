@@ -1,7 +1,9 @@
 package com.example.itype;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -30,22 +32,17 @@ public class ControladorPerfil extends AppCompatActivity {
         VelMax.setText(Usuario.getVelMax());
         UserName.setText(Usuario.getName());
         jugadas.setText(Usuario.getJugadas());
-        /*
-                //cambio a la vista de seleccion de dificultad
-        Volver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Selection_Controller.class);
-                startActivity(intent);
-            }});
-
-             //cambio a la vista de inicio de sesion
-        Salir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Sesion_Controller.class);
-                startActivity(intent);
-            }});
-*/
        }
+
+    public void MenuPrincipal(View view)
+    {
+        Intent i = new Intent(this, ControladorMenuPrincipal.class);
+        startActivity(i);
+    }
+
+    public void salir(View view)
+    {
+        Intent i = new Intent(this, ControladorInicioSesion.class);
+        startActivity(i);
+    }
     }

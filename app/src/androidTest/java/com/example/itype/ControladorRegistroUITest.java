@@ -15,6 +15,8 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 
+import java.util.concurrent.ExecutionException;
+
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -113,7 +115,9 @@ public class ControladorRegistroUITest {
     }
 
     @Test
-    public void registroCorrecto_VerificacionCorrecta_vReg(){
+    public void registroCorrecto_VerificacionCorrecta_vReg() throws ExecutionException, InterruptedException {
+        Http_Post request = new Http_Post();//nueva conexión post para registrar usuario
+        String result = request.execute("http://itype.ml/delete.php","user","prueba12341231").get();
         onView(withId(R.id.editText_vRegUsuario)).perform(clearText(),typeText("prueba12341231"),closeSoftKeyboard());
         onView(withId(R.id.editText_vRegContra)).perform(clearText(),typeText("contra123414"),closeSoftKeyboard());
         onView(withId(R.id.button_vRegRegistrar)).perform(click());
@@ -144,13 +148,6 @@ public class ControladorRegistroUITest {
         onView(withText("El usuario - " + usuarioExistente + " - ya existe")).inRoot(withDecorView(not(is(reglaActividad.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
     }
 
-    @Test
-    public void registroIncorrecto_UsuarioMuyLargo_VerificacionCorrecta_vReg(){
-        onView(withId(R.id.editText_vRegUsuario)).perform(clearText(),typeText("pruebas000011112222333344445555"),closeSoftKeyboard());
-        onView(withId(R.id.editText_vRegContra)).perform(clearText(),typeText(contraExistente),closeSoftKeyboard());
-        onView(withId(R.id.button_vRegRegistrar)).perform(click());
-        onView(withText("Nombre de usuario muy largo. Intente otra vez")).inRoot(withDecorView(not(is(reglaActividad.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
-    }
 
     /*@Test
     public void switchToFragment() {

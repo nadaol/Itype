@@ -29,8 +29,8 @@ public class ControladorMenuPrincipal extends AppCompatActivity {
 
     public void irPerfil (View view) {
 
-        //Intent i = new Intent(this, ControladorPerfil.class);
-        //startActivity(i);
+        Intent i = new Intent(this, ControladorPerfil.class);
+        startActivity(i);
     }
 
     @Override

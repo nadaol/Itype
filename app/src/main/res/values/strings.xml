@@ -44,6 +44,8 @@
     <string name="P8">8</string>
     <string name="P9">9</string>
     <string name="P10">10</string>
+    <string name="menu">Menu</string>
+    <string name="volver">Volver</string>
     <string name="Login">Log in</string>
     <string name="User">Usuario</string>
     <string name="Users">Nombre de Usuario</string>
