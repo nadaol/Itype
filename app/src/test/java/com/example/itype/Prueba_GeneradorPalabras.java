@@ -15,9 +15,9 @@ public class Prueba_GeneradorPalabras {
             add("dificil");
         }
     };
-    GeneradorPalabras_facil facilGen = new GeneradorPalabras_facil();
-    GeneradorPalabras_Intermedio interGen = new GeneradorPalabras_Intermedio();
-    GeneradorPalabras_dificil difGen = new GeneradorPalabras_dificil();
+    Comportamiento_Generador facilGen = new GeneradorPalabras_facil();
+    Comportamiento_Generador interGen = new GeneradorPalabras_Intermedio();
+    Comportamiento_Generador difGen = new GeneradorPalabras_dificil();
 
     @Test
     public void PruebaFacil_generar() {
