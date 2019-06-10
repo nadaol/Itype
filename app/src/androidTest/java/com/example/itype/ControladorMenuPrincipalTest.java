@@ -34,11 +34,12 @@ import static org.junit.Assert.*;
 
 // @RunWith is required only if you use a mix of JUnit3 and JUnit4.
 @RunWith(AndroidJUnit4.class)
-public class ControladorSeleccionNivelUITest {
+public class ControladorMenuPrincipalTest {
+
 
     @Rule
-    public ActivityTestRule<ControladorSeleccionNivel> reglaActividad =
-            new ActivityTestRule<>(ControladorSeleccionNivel.class);
+    public ActivityTestRule<ControladorMenuPrincipal> reglaActMenuPrincipal =
+            new ActivityTestRule<>(ControladorMenuPrincipal.class);
 
     @Test
     public void useAppContext() {
@@ -47,47 +48,39 @@ public class ControladorSeleccionNivelUITest {
         assertEquals("com.example.itype", appContext.getPackageName());
     }
     @Test
-    public void stringTituloExiste_vSelNiv() {
-        onView(withId(R.id.textView_vSelNivTexto)).check(matches(withText("Seleccione la dificultad del juego:")));
+    public void stringTituloExiste_vInicio() {
+        onView(withId(R.id.textView_vMenuTitulo)).check(matches(withText("MENÚ PRINCIPAL")));
+    }
+
+
+    @Test
+    public void botonIniciarJuegoExiste_vInicio(){
+        onView(withId(R.id.button_vMenuInicioJuego)).check(matches(withText("Iniciar juego")));
     }
 
     @Test
-    public void botonFacilExiste_vSelNiv(){
-        onView(withId(R.id.button_vSelNivFacil)).check(matches(withText("Fácil")));
+    public void botonPerfilExiste_vInicio(){
+        onView(withId(R.id.button_vMenuPerfil)).check(matches(withText("Perfil")));
     }
 
     @Test
-    public void botonMedioExiste_vSelNiv(){
-        onView(withId(R.id.button_vSelNivMedio)).check(matches(withText("Medio")));
+    public void botonVolverExiste_vInicio(){
+        onView(withId(R.id.button_vMenuSalir)).check(matches(withText("Salir")));
     }
 
     @Test
-    public void botonDificilExiste_vSelNiv(){
-        onView(withId(R.id.button_vSelNivDificil)).check(matches(withText("Difícil")));
+    public void botonIniciarJuegoTactil_vInicio(){
+        onView(withId(R.id.button_vMenuInicioJuego)).check(matches(isClickable()));
     }
 
     @Test
-    public void botonVolverExiste_vSelNiv(){
-        onView(withId(R.id.button_vSelNivSalir)).check(matches(withText("Volver")));
+    public void botonPerfilTactil_vInicio(){
+        onView(withId(R.id.button_vMenuPerfil)).check(matches(isClickable()));
     }
 
     @Test
-    public void botonFacilTactil_vInicio(){
-        onView(withId(R.id.button_vSelNivFacil)).check(matches(isClickable()));
-    }
-
-    @Test
-    public void botonMedioTactil_vInicio(){
-        onView(withId(R.id.button_vSelNivMedio)).check(matches(isClickable()));
-    }
-    @Test
-    public void botonDificilTactil_vInicio(){
-        onView(withId(R.id.button_vSelNivDificil)).check(matches(isClickable()));
-    }
-
-    @Test
-    public void botonFacilVolver_vInicio(){
-        onView(withId(R.id.button_vSelNivSalir)).check(matches(isClickable()));
+    public void botonVolverTactil_vInicio(){
+        onView(withId(R.id.button_vMenuSalir)).check(matches(isClickable()));
     }
 
     /*@Test
@@ -97,4 +90,3 @@ public class ControladorSeleccionNivelUITest {
     }*/
 
 }
-

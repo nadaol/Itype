@@ -36,7 +36,7 @@ import static org.junit.Assert.*;
 
 // @RunWith is required only if you use a mix of JUnit3 and JUnit4.
 @RunWith(AndroidJUnit4.class)
-public class ControladorRegistroUITest {
+public class ControladorRegistroTest {
 
     String usuarioExistente = "usuario";
     String contraExistente= "1234";

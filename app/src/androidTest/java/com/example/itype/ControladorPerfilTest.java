@@ -15,7 +15,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class ControladorPerfilUITest {
+public class ControladorPerfilTest {
 
     @Rule
     public ActivityTestRule<ControladorPerfil> TestRule=new ActivityTestRule<ControladorPerfil>(ControladorPerfil.class);

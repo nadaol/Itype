@@ -19,7 +19,7 @@ import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentat
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class ControladorPuestosUITest {
+public class ControladorPuestosTest {
 
 
     @Rule

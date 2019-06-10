@@ -53,16 +53,14 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
         miVel.setText("0");
         Tiempo.setText(Integer.toString(TiempoPrueba_Seg));
         //inicializacion de la prueba con observador this
-        prueba = new Prueba(this,TiempoPrueba_Seg);
-        //seteo la generacion de palabras del objeto prueba
         //---pasar dificultad de vista seleccion---
         Intent intent = getIntent();
         String dificultad = intent.getStringExtra("dificultad");
         if(dificultad!=null){
-        if(dificultad.equals("Facil")) prueba.setGenerador(new GeneradorPalabras_facil());
-        else if(dificultad.equals("Media")) prueba.setGenerador(new GeneradorPalabras_Intermedio());
-        else if(dificultad.equals("Dificil")) prueba.setGenerador(new GeneradorPalabras_dificil());}
-        else prueba.setGenerador(new GeneradorPalabras_facil());
+            if(dificultad.equals("Facil"))prueba = Prueba.getInstance(this,TiempoPrueba_Seg,new GeneradorPalabras_facil());
+            else if(dificultad.equals("Media")) prueba = Prueba.getInstance(this,TiempoPrueba_Seg,new GeneradorPalabras_Intermedio());
+            else if(dificultad.equals("Dificil")) prueba = Prueba.getInstance(this,TiempoPrueba_Seg,new GeneradorPalabras_dificil());}
+        else prueba = Prueba.getInstance(this,TiempoPrueba_Seg,new GeneradorPalabras_facil());
 
         //creo objeto listenter para manejo de deteccion de palabras
         listener = new View.OnKeyListener() {
@@ -130,22 +128,7 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
 
     public void empezar_siguiente (View view)
     {
-        if(comenzar.getText().toString().equals("Siguiente")) {
-            Intent i = new Intent(getApplicationContext(), ControladorPuestos.class);
-            startActivity(i);
-            OkHttpClient client = new OkHttpClient();
-            Request request = new Request.Builder().url("ws://192.168.0.21:8080").build();
-            client.newWebSocket(request,WebSocketConnection.getInstance());//creo una conexion por webSocket
-            client.dispatcher().executorService().shutdown();
-            try{
-                sleep(400);
-               String vel = miVel.getText().toString();
-                if (vel!=null)WebSocketConnection.enviar(Usuario.getName()+","+vel);//requiere conexion con servidor local,debería enviar la velocidad al terminar la prueba
-            }
-            catch(Exception e){e.printStackTrace();}
-            finish();
-            return;
-        }
+        if(comenzar.getText().toString().equals("Comenzar!")||comenzar.getText().toString().equals("Reintentar")) {
             entrada.setText("");
             comenzar.setText("Reintentar");
             enableEditText(entrada, listener);//asigno listener a la entrada
@@ -156,13 +139,31 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
             //empiezo el timer de la prueba
             modelo.setText(prueba.nuevaPalabra(Palabras));//seteo primer palabra modelo
             prueba.empezar();
+        }
+
+       else if(comenzar.getText().toString().equals("Siguiente")) {
+            Intent i = new Intent(getApplicationContext(), ControladorPuestos.class);
+            startActivity(i);
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder().url("ws://192.168.0.21:8080").build();
+            client.newWebSocket(request,WebSocketConnection.getInstance());//creo una conexion por webSocket
+            client.dispatcher().executorService().shutdown();
+            try{
+                sleep(400);
+                String vel = miVel.getText().toString();
+                if (vel!=null)WebSocketConnection.enviar(Usuario.getName()+","+vel);//requiere conexion con servidor local,debería enviar la velocidad al terminar la prueba
+            }
+            catch(Exception e){e.printStackTrace();}
+            finish();
+            return;
+        }
     }
 
 
 
     public void MenuPrincipal (View view)
     {
-       //ir a seleccion de dificultad
+        //ir a seleccion de dificultad
         prueba.pause();
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("¿Desea regresar a menú principal?");

@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ControladorActivaUITest {
+public class ControladorActivaTest {
     private final int time = 30;
 
     @Rule
@@ -72,7 +72,7 @@ public class ControladorActivaUITest {
         TextView Tiempo = (TextView) activity.findViewById(R.id.Tiempo_Tview);
         Button comenzar = (Button) activity.findViewById(R.id.comenzar_btn);
         onView(withId(comenzar.getId())).perform(click());
-        TimeUnit.SECONDS.sleep(time);//espera que la prueba finalize
+        TimeUnit.SECONDS.sleep(time+2);//espera que la prueba finalize
         assertEquals("0", Tiempo.getText().toString());
         assertEquals("Siguiente", comenzar.getText().toString());
         activity = null;

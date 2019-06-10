@@ -3,59 +3,66 @@ package com.example.itype;
 import android.os.CountDownTimer;
 
 import java.util.ArrayList;
-
+//clase prueba en la se asigna un temporizador y se le avisa cada segundo la llamada de la funcion onTick y al finalizar la llamada de la funcion
 public class Prueba {
-    private Comportamiento_Generador generador;//tipo de generador para nuevaPalabra()
-    private final Temporizador obs;//Observador que implementa Tick() y finalizar()
+    private static Prueba unique;
+    private static Comportamiento_Generador generador;//tipo de generador para nuevaPalabra()
+    private static Temporizador tempo;//Observador que implementa Tick() y finalizar()
     private static CountDownTimer timer;//Timer para la prueba
-    private final int TiempoPrueba;
-    private int TiempoRestante;
+    private static int TiempoPrueba;
+    private static int TiempoRestante;
 
-    //clase prueba en la que se avisa al observador cada segundo la llamada de la funcion onTick y al finalizar la llamada de la funcion
-    public Prueba(final Temporizador observador, int Tiempo_Seg)
+    private Prueba(Temporizador asignado,int Tiempo_Seg,Comportamiento_Generador generador)
     {
+        tempo=asignado;
         TiempoPrueba=Tiempo_Seg;
-        this.obs=observador;//el controlador que implementa Tick() y finalizar() para la actualización de la vista
-    }
-
-    public void setGenerador(Comportamiento_Generador generador) {
+        TiempoRestante=TiempoPrueba;
         this.generador = generador;
     }
 
-    public String nuevaPalabra(ArrayList<String> palabras)
+    public static Prueba getInstance(Temporizador asignado,int Tiempo_Seg,Comportamiento_Generador generador)
+    {
+        if(unique==null) {
+            unique = new Prueba(asignado,Tiempo_Seg,generador); }
+        return unique;
+    }
+
+
+    public static String nuevaPalabra(ArrayList<String> palabras)
     {
         return generador.generar(palabras);
     }
     //devuelve velocidad en base a caracteres correctos
-    public String CalcularVelocidad(int correctChar)
+    public static String CalcularVelocidad(int correctChar)
     {
         int Vf ,Ttranscurrido = TiempoPrueba-TiempoRestante;
         if(Ttranscurrido==0) return "0";
         Vf=(60*correctChar)/(Ttranscurrido);
         return Integer.toString(Vf);
     }
-    public void pause(){timer.cancel();};
-    public void resume(){empezar2(TiempoRestante);};
+    public static void pause(){timer.cancel();};
+    public static void resume(){empezar2(TiempoRestante);};
     //Emprieza a correr la cuenta regresiva de 'TiempoPrueba' segundos
-    public void empezar()
+    public static void empezar()
     {
         empezar2(TiempoPrueba);
     }
     //Emprieza a correr la cuenta regresiva especificando la duracion
-    private void empezar2(int Tiempo_Seg)
+    private static void empezar2(int Tiempo_Seg)
     {
+        if(timer!=null) timer.cancel();
         timer =new CountDownTimer(Tiempo_Seg*1000, 1000) {
             //Se llama cada vez que pasan 1000 milisegundos
             @Override
             public void onTick(long millisUntilFinished) {
                 TiempoRestante=(int)(millisUntilFinished/1000);
-                obs.Tick(TiempoRestante);
+                tempo.Tick(TiempoRestante);
             }
 
             //ejecuta instrucciones luego de que termina la cuenta regresiva
             @Override
             public void onFinish() {
-                obs.finalizar();timer.cancel();
+                tempo.finalizar();timer.cancel();
             }
 
         }.start();

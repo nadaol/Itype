@@ -17,6 +17,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:alpha="0.8"
         android:text="@string/Partidas"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -33,23 +34,34 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="64dp"
-        android:text="@string/salir"
+        android:layout_marginBottom="32dp"
+        android:alpha="0.6"
+        android:background="@color/darkGrey"
         android:onClick="salir"
+        android:text="@string/salir"
+        android:textColor="@color/lightGrey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toEndOf="@+id/volver_btn" />
 
     <Button
         android:id="@+id/volver_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginBottom="64dp"
-        android:text="@string/men_principal"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="32dp"
+        android:alpha="0.6"
+        android:background="@color/darkGrey"
         android:onClick="MenuPrincipal"
+        android:text="@string/men_principal"
+        android:textColor="@color/lightGrey"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -61,6 +73,7 @@
         android:layout_marginTop="52dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:alpha="0.8"
         android:text="@string/VelProm"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -77,6 +90,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="8dp"
+        android:alpha="0.8"
         android:layout_marginRight="8dp"
         android:text="@string/User2"
         android:textColor="#000000"
@@ -95,6 +109,7 @@
         android:layout_marginTop="44dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:alpha="0.8"
         android:text="@string/VelMax"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -110,8 +125,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="40dp"
+        android:alpha="0.6"
         android:textColor="@color/deepBlue"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtJugadas"
         app:layout_constraintStart_toEndOf="@+id/txtUsuario" />
 
@@ -122,8 +139,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="40dp"
+        android:alpha="0.6"
         android:textColor="#FF8000"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/txtJugadas"
         app:layout_constraintTop_toBottomOf="@+id/UserName" />
 
@@ -134,8 +153,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="52dp"
+        android:alpha="0.6"
         android:textColor="#FF8000"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/txtVelProm"
         app:layout_constraintTop_toBottomOf="@+id/jugadas" />
 
@@ -146,8 +167,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="44dp"
+        android:alpha="0.6"
         android:textColor="#FF8000"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/txtVelMax"
         app:layout_constraintTop_toBottomOf="@+id/VelProm" />
 
