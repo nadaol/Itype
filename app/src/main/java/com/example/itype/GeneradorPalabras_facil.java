@@ -8,7 +8,7 @@ public class GeneradorPalabras_facil implements Comportamiento_Generador{
     public String generar(ArrayList<String> palabras)
     {
         Random rand = new Random();
-        int indice,indice_aux=0;
+        int indice,indice_aux=palabras.size();
         int size=palabras.size();
         for(int i=0;i<3;i++)
         {
