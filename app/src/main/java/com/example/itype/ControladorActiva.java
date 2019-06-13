@@ -48,8 +48,6 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
         comenzar = (Button) findViewById(R.id.comenzar_btn);
         salir = (Button) findViewById(R.id.button_vInicioSalir);
         //deshabilito sugerencias del teclado
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(entrada, InputMethodManager.SHOW_IMPLICIT);
 
         comenzar.setText("Comenzar!");
         miVel.setTextColor(Color.parseColor("#000000"));
@@ -93,9 +91,7 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
                 }
                 return true;}
         };
-
-entrada.setOnKeyListener(listener);
-
+disableEditText(entrada);
     }
 
     @Override
@@ -122,12 +118,12 @@ entrada.setOnKeyListener(listener);
         return;
     }
 
-    public void empezar_siguiente (View view)
+    public void empezar_reintentar(View view)
     {
+        enableEditText(entrada,listener);
             entrada.setText("");
             comenzar.setText("Reintentar");
             Caractateres_Correctos = 0;
-            entrada.requestFocus();
             //empiezo el timer de la prueba
             modelo.setText(prueba.nuevaPalabra(Palabras));//seteo primer palabra modelo
             prueba.empezar();
@@ -162,6 +158,23 @@ entrada.setOnKeyListener(listener);
         Intent i = new Intent(this, ControladorMenuPrincipal.class);
         startActivity(i);
     }
+    private void disableEditText(EditText editText) {
+        editText.setText(null);
+        editText.setFocusable(false);
+        editText.setEnabled(false);
+        editText.setCursorVisible(false);
+    }
+
+    private void enableEditText(EditText editText,View.OnKeyListener listener) {
+        editText.setText(null);
+        editText.setEnabled(true);
+        editText.setCursorVisible(true);
+        editText.setOnKeyListener(listener);
+        editText.setFocusableInTouchMode(true);
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
+        editText.requestFocus();
+    }
 
 
-}
+    }
