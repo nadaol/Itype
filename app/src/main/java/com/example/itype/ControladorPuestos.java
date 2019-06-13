@@ -28,25 +28,6 @@ public class ControladorPuestos extends AppCompatActivity implements Observador 
 
         //me inscribo a la conexion para que me lleguen los updates
         WebSocketConnection.addObs(this);
- /*
-        0.-+
-        //cambio a la vista de seleccion de dificultad
-        Volver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(this,Seleccion_Controller.class);
-                startActivity(intent2);
-            }}); */
-
-        //cambio a la vista de info de usuario
-        Siguiente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ControladorPerfil.class);
-                startActivity(intent);
-            }});
-
-
     }
 
     public void actualizar(final String s) {//update view on UiThread
@@ -84,6 +65,14 @@ public class ControladorPuestos extends AppCompatActivity implements Observador 
     {
         Intent i = new Intent(this, ControladorMenuPrincipal.class);
         startActivity(i);
+        finish();
+    }
+
+    public void siguiente(View view)
+    {
+        Intent intent = new Intent(getApplicationContext(), ControladorPerfil.class);
+        startActivity(intent);
+        finish();
     }
 
 }

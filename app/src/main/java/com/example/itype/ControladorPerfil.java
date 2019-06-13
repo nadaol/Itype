@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 public class ControladorPerfil extends AppCompatActivity {
 
-    private Button Salir;//boton para ir al inicio de sesion
     private Button Volver;//boton para ir a seleccion de dificultad(nuevo juego)
     private TextView UserName;
     private TextView jugadas;
@@ -23,7 +22,6 @@ public class ControladorPerfil extends AppCompatActivity {
         //Obtiene nueva informacion de usuario
         try {Usuario.actualizarInfo();}catch(Exception e){e.printStackTrace();}
         Volver = findViewById(R.id.volver_btn);
-        Salir = findViewById(R.id.salir_btn);
         jugadas = findViewById(R.id.jugadas);
         VelProm = findViewById(R.id.VelProm);
         VelMax = findViewById(R.id.VelMax);
@@ -38,11 +36,7 @@ public class ControladorPerfil extends AppCompatActivity {
     {
         Intent i = new Intent(this, ControladorMenuPrincipal.class);
         startActivity(i);
+        finish();
     }
 
-    public void salir(View view)
-    {
-        Intent i = new Intent(this, ControladorInicioSesion.class);
-        startActivity(i);
-    }
     }

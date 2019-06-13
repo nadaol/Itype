@@ -1,13 +1,11 @@
 package com.example.itype;
 
-import android.widget.Toast;
-
 //Clase única(singleton)para almacenar y gestionar datos del usuario
 public class Usuario {
 
     private static String Nombre,Contraseña,VelocidadProm,VelocidadMax,Jugadas;
 
-    private static Usuario usuario;
+    private static Usuario unique;
 
     private Usuario()
     {
@@ -17,7 +15,7 @@ public class Usuario {
 
     public static void actualizarInfo() throws Exception
     {//Realiza un update de los datos del usuario con respecto a la última jugada
-        if(usuario!=null&&Nombre!=null) {
+        if(unique!=null&&Nombre!=null) {
             try {
                 Http_Post request = new Http_Post();//Obtengo los datos del usuario
                 String UserInfo = request.execute("http://itype.ml/getdata.php", "username", Nombre).get();
@@ -38,7 +36,7 @@ public class Usuario {
         {
             return "Campos vacíos, caracteres especiales o espacios. Ingrese solo letras o numeros";
         }
-        if(usuario==null){usuario=new Usuario();}
+        if(unique==null){unique=new Usuario();}
         Http_Post request = new Http_Post();//nueva conexion post para validar el login
         String result = request.execute("http://itype.ml/login.php","user",Name,"password",Password).get();
         if(result.contains("Log in succesfull")) {

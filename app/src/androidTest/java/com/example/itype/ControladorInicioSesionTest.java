@@ -1,17 +1,12 @@
 package com.example.itype;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.widget.EditText;
 
 import androidx.test.core.app.ApplicationProvider;
-import androidx.test.espresso.ViewAssertion;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
-import org.junit.Assert;
 import org.junit.Test;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 
@@ -55,6 +50,11 @@ public class ControladorInicioSesionTest {
     }
 
     @Test
+    public void botonSalirExiste_vInicio() {
+        onView(withId(R.id.button_vInicioSalir)).check(matches(withText("Salir")));
+    }
+
+    @Test
     public void stringContrasenaExiste_vInicio() {
         onView(withId(R.id.textView_vInicioContrasena)).check(matches(withText("Contraseña")));
     }
@@ -76,7 +76,12 @@ public class ControladorInicioSesionTest {
 
     @Test
     public void botonRegistrarTactil_vInicio(){
-        onView(withId(R.id.button_vInicioRegistrar)).check(matches(isClickable()));
+        onView(withId(R.id.button_vInicioSalir)).check(matches(isClickable()));
+    }
+
+    @Test
+    public void botonSalirTactil_vInicio(){
+        onView(withId(R.id.button_vInicioSalir)).check(matches(isClickable()));
     }
 
 

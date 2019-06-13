@@ -23,7 +23,7 @@ public class ControladorRegistro extends Activity {
 
             try {
                 String log = Usuario.registrar(Username_et.getText().toString(), Password_et.getText().toString());
-                Toast.makeText(getApplicationContext(), log, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), log, Toast.LENGTH_SHORT).show();
             }
             catch(Exception e)
             {
@@ -35,6 +35,7 @@ public class ControladorRegistro extends Activity {
     public void regresoInicioSesion (View view) {
         Intent i = new Intent(this, ControladorInicioSesion.class);
         startActivity(i);
+        finish();
     }
 
     @Override

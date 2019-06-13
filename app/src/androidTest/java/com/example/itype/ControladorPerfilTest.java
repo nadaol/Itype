@@ -45,8 +45,6 @@ public class ControladorPerfilTest {
     {
         Button btn = activity.findViewById(R.id.volver_btn);
         assertNotNull(btn);
-        btn = activity.findViewById(R.id.salir_btn);
-        assertNotNull(btn);
     }
 
     @Test
@@ -67,8 +65,6 @@ public class ControladorPerfilTest {
     {
         Button btn = activity.findViewById(R.id.volver_btn);
         assertEquals("MENÚ PRINCIPAL",btn.getText().toString());
-        btn = activity.findViewById(R.id.salir_btn);
-        assertEquals("Salir",btn.getText().toString());
     }
 
 

@@ -27,25 +27,6 @@
         app:layout_constraintTop_toBottomOf="@+id/txtUsuario" />
 
     <Button
-        android:id="@+id/salir_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="32dp"
-        android:alpha="0.6"
-        android:background="@color/darkGrey"
-        android:onClick="salir"
-        android:text="@string/salir"
-        android:textColor="@color/lightGrey"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.569"
-        app:layout_constraintStart_toEndOf="@+id/volver_btn" />
-
-    <Button
         android:id="@+id/volver_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +34,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="28dp"
         android:alpha="0.6"
         android:background="@color/darkGrey"
         android:onClick="MenuPrincipal"
@@ -61,7 +42,7 @@
         android:textColor="@color/lightGrey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

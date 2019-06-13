@@ -55,6 +55,7 @@
     <string name="CreateUsr">Register now!</string>
     <string name="dificil">Dificil</string>
     <string name="facil">Facil</string>
+    <string name="Inicio">Ir al Inicio</string>
     <string name="intermedio">Intermedio</string>
     <string name="UsersOn">N° Usuarios en Linea : </string>
     <string name="selecciondificultad">Seleccione la dificultad</string>

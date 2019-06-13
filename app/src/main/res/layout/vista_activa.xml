@@ -117,7 +117,6 @@
         android:alpha="0.5"
         android:background="@color/green"
         android:onClick="empezar_siguiente"
-        android:text="@string/start"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +124,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/salir_btn"
+        android:id="@+id/button_vInicioSalir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

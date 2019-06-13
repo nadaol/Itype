@@ -46,7 +46,10 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
         Tiempo = (TextView) findViewById(R.id.Tiempo_Tview);
         miVel = (TextView) findViewById(R.id.velocidad_Tview);
         comenzar = (Button) findViewById(R.id.comenzar_btn);
-        salir = (Button) findViewById(R.id.salir_btn);
+        salir = (Button) findViewById(R.id.button_vInicioSalir);
+        //deshabilito sugerencias del teclado
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(entrada, InputMethodManager.SHOW_IMPLICIT);
 
         comenzar.setText("Comenzar!");
         miVel.setTextColor(Color.parseColor("#000000"));
@@ -91,7 +94,7 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
                 return true;}
         };
 
-
+entrada.setOnKeyListener(listener);
 
     }
 
@@ -103,63 +106,33 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
 
     @Override
     public void finalizar() {//se llama al finalizar el timer de prueba
-        comenzar.setText("Siguiente");
-        disableEditText(entrada);
-        modelo.setText(null);
-        Tiempo.setText("0");
-        miVel.setText(prueba.CalcularVelocidad(Caractateres_Correctos));
-        miVel.setTextColor(Color.parseColor("#DE2E13"));
-    }
-
-    private void disableEditText(EditText editText) {
-        editText.setText(null);
-        editText.setFocusable(false);
-        editText.setEnabled(false);
-        editText.setCursorVisible(false);
-        editText.setOnKeyListener(null);
-    }
-
-    private void enableEditText(EditText editText, View.OnKeyListener listener) {
-        editText.setFocusable(true);
-        editText.setEnabled(true);
-        editText.setCursorVisible(true);
-        editText.setOnKeyListener(listener);
+        Intent i = new Intent(getApplicationContext(), ControladorPuestos.class);
+        startActivity(i);
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder().url("ws://192.168.0.21:8080").build();
+        client.newWebSocket(request,WebSocketConnection.getInstance());//creo una conexion por webSocket
+        client.dispatcher().executorService().shutdown();
+        try{
+            sleep(400);
+            String vel = miVel.getText().toString();
+            if (vel!=null)WebSocketConnection.enviar(Usuario.getName()+","+vel);//requiere conexion con servidor local,debería enviar la velocidad al terminar la prueba
+        }
+        catch(Exception e){e.printStackTrace();}
+        finish();
+        return;
     }
 
     public void empezar_siguiente (View view)
     {
-        if(comenzar.getText().toString().equals("Comenzar!")||comenzar.getText().toString().equals("Reintentar")) {
             entrada.setText("");
             comenzar.setText("Reintentar");
-            enableEditText(entrada, listener);//asigno listener a la entrada
-            //deshabilito sugerencias del teclado
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.showSoftInput(entrada, InputMethodManager.SHOW_IMPLICIT);
             Caractateres_Correctos = 0;
+            entrada.requestFocus();
             //empiezo el timer de la prueba
             modelo.setText(prueba.nuevaPalabra(Palabras));//seteo primer palabra modelo
             prueba.empezar();
-        }
 
-       else if(comenzar.getText().toString().equals("Siguiente")) {
-            Intent i = new Intent(getApplicationContext(), ControladorPuestos.class);
-            startActivity(i);
-            OkHttpClient client = new OkHttpClient();
-            Request request = new Request.Builder().url("ws://192.168.0.21:8080").build();
-            client.newWebSocket(request,WebSocketConnection.getInstance());//creo una conexion por webSocket
-            client.dispatcher().executorService().shutdown();
-            try{
-                sleep(400);
-                String vel = miVel.getText().toString();
-                if (vel!=null)WebSocketConnection.enviar(Usuario.getName()+","+vel);//requiere conexion con servidor local,debería enviar la velocidad al terminar la prueba
-            }
-            catch(Exception e){e.printStackTrace();}
-            finish();
-            return;
-        }
     }
-
-
 
     public void MenuPrincipal (View view)
     {
@@ -171,7 +144,6 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
         builder.setPositiveButton("Si. Regresar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i){
-                finish();
                 regresoMenu();
             }
         });
@@ -190,5 +162,6 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
         Intent i = new Intent(this, ControladorMenuPrincipal.class);
         startActivity(i);
     }
+
 
 }

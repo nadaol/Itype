@@ -3,6 +3,7 @@ package com.example.itype;
 import android.os.CountDownTimer;
 
 import java.util.ArrayList;
+
 //clase prueba en la se asigna un temporizador y se le avisa cada segundo la llamada de la funcion onTick y al finalizar la llamada de la funcion
 public class Prueba {
     private static Prueba unique;

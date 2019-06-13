@@ -19,18 +19,21 @@ public class ControladorMenuPrincipal extends AppCompatActivity {
     public void regresoInicio (View view) {
         Intent i = new Intent(this, ControladorInicioSesion.class);
         startActivity(i);
+        finish();
     }
 
     public void irSeleccionNivel (View view) {
 
         Intent i = new Intent(this, ControladorSeleccionNivel.class);
         startActivity(i);
+        finish();
     }
 
     public void irPerfil (View view) {
 
         Intent i = new Intent(this, ControladorPerfil.class);
         startActivity(i);
+        finish();
     }
 
     @Override
