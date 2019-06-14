@@ -78,7 +78,7 @@ public class ControladorRegistroTest {
 
     @Test
     public void botonRegistrarExiste_vReg(){
-        onView(withId(R.id.button_vRegRegistrar)).check(matches(withText("Registrar")));
+        onView(withId(R.id.button_vRegRegistrar)).check(matches(withText("Registrarse")));
     }
 
     @Test

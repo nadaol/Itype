@@ -38,6 +38,6 @@ public class ControladorMenuPrincipal extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
+
     }
 }

@@ -58,6 +58,6 @@ public class  ControladorInicioSesion extends Activity {
 
     @Override
     public void onBackPressed() {
-        finish();
+
     }
 }

@@ -74,5 +74,9 @@ public class ControladorPuestos extends AppCompatActivity implements Observador 
         startActivity(intent);
         finish();
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 
 }

@@ -12,33 +12,39 @@ public class Prueba {
     private static CountDownTimer timer;//Timer para la prueba
     private static int TiempoPrueba;
     private static int TiempoRestante;
+    private static int Caractateres_Correctos;
+    private static int plus;
 
-    private Prueba(Temporizador asignado,int Tiempo_Seg,Comportamiento_Generador generador)
-    {
-        tempo=asignado;
-        TiempoPrueba=Tiempo_Seg;
-        TiempoRestante=TiempoPrueba;
-        this.generador = generador;
-    }
+    private Prueba() { }
 
-    public static Prueba getInstance(Temporizador asignado,int Tiempo_Seg,Comportamiento_Generador generador)
+    public static Prueba getInstance()
     {
         if(unique==null) {
-            unique = new Prueba(asignado,Tiempo_Seg,generador); }
+            unique = new Prueba(); }
         return unique;
     }
 
+    public static void setPrueba(Temporizador assigned,String dificultad,int Tiempo_Seg)
+    {
+        tempo=assigned;
+        TiempoPrueba=Tiempo_Seg;
+        if (dificultad!=null){
+        if(dificultad.equals("Facil")){generador=new GeneradorPalabras_facil();plus=0;}
+        else if (dificultad.equals("Media")){generador=new GeneradorPalabras_Intermedio();plus=3;}
+        else if (dificultad.equals("Dificil")){generador=new GeneradorPalabras_dificil();plus=6;}}
+        else {generador=new GeneradorPalabras_facil();plus=0;}
+    }
 
     public static String nuevaPalabra(ArrayList<String> palabras)
     {
         return generador.generar(palabras);
     }
     //devuelve velocidad en base a caracteres correctos
-    public static String CalcularVelocidad(int correctChar)
+    public static String CalcularVelocidad()
     {
         int Vf ,Ttranscurrido = TiempoPrueba-TiempoRestante;
         if(Ttranscurrido==0) return "0";
-        Vf=(60*correctChar)/(Ttranscurrido);
+        Vf=(60*Caractateres_Correctos)/(Ttranscurrido);
         return Integer.toString(Vf);
     }
     public static void pause(){timer.cancel();};
@@ -46,6 +52,7 @@ public class Prueba {
     //Emprieza a correr la cuenta regresiva de 'TiempoPrueba' segundos
     public static void empezar()
     {
+        Caractateres_Correctos=0;
         empezar2(TiempoPrueba);
     }
     //Emprieza a correr la cuenta regresiva especificando la duracion
@@ -63,9 +70,15 @@ public class Prueba {
             //ejecuta instrucciones luego de que termina la cuenta regresiva
             @Override
             public void onFinish() {
+                Caractateres_Correctos+=plus;
                 tempo.finalizar();timer.cancel();
             }
 
         }.start();
+    }
+
+    public static void addCorrectChars(int CorrectChars)
+    {
+        Caractateres_Correctos+=CorrectChars;
     }
 }

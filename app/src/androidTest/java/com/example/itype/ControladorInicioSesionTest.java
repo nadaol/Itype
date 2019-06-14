@@ -66,7 +66,7 @@ public class ControladorInicioSesionTest {
 
     @Test
     public void botonRegistrarExiste_vInicio(){
-        onView(withId(R.id.button_vInicioRegistrar)).check(matches(withText("Registrar")));
+        onView(withId(R.id.button_vInicioRegistrar)).check(matches(withText("Registrarse")));
     }
 
     @Test

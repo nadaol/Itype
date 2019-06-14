@@ -11,7 +11,7 @@
     <string name="contra_prueba_texto">1234</string>
     <string name="ingresar">Ingresar</string>
     <string name="User2">Usuario : </string>
-    <string name="registrar">Registrar</string>
+    <string name="registrar">Registrarse</string>
     <string name="texto_bienvenida">¡Bienvenido a IType!</string>
     <string name="texto_registro">Ingrese un nuevo usuario y contraseña para poder acceder a la aplicación</string>
     <string name="texto_regresoinicio">Volver</string>
@@ -63,5 +63,10 @@
     <string name="velocidad">Velocidad: </string>
     <string name="comenzar">¡Comenzar!</string>
     <string name="salir">Salir</string>
+    <string-array name="dificultad">
+        <item>Facil</item>
+        <item>Medio</item>
+        <item>Dificil</item>
+    </string-array>
 
 </resources>

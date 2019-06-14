@@ -36,7 +36,7 @@ public class ControladorActivaTest {
     @Test
     public void Prueba1_ExistenciaBotones() {
         assertNotNull(activity.findViewById(R.id.comenzar_btn));
-        assertNotNull(activity.findViewById(R.id.button_vInicioSalir));
+        assertNotNull(activity.findViewById(R.id.menuPrincipal_btn));
     }
 
     @Test

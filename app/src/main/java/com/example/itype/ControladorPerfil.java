@@ -38,5 +38,9 @@ public class ControladorPerfil extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 
     }
