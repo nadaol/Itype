@@ -3,16 +3,13 @@ package com.example.itype;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.test.rule.ActivityTestRule;
-
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import java.util.concurrent.TimeUnit;
-
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -67,16 +64,13 @@ public class ControladorActivaTest {
         assertNotNull(activity.findViewById(R.id.comenzar_btn));
     }
 
-    /*@Test
+    @Test
     public void Prueba5_finalizar() throws Exception {//completar
         TextView Tiempo = (TextView) activity.findViewById(R.id.Tiempo_Tview);
         Button comenzar = (Button) activity.findViewById(R.id.comenzar_btn);
         onView(withId(comenzar.getId())).perform(click());
-        TimeUnit.SECONDS.sleep(time+2);//espera que la prueba finalize
+        TimeUnit.SECONDS.sleep(time);//espera que la prueba finalize
         assertEquals("0", Tiempo.getText().toString());
-        assertEquals("Siguiente", comenzar.getText().toString());
         activity = null;
-    }*/
+    }
 }
-
-

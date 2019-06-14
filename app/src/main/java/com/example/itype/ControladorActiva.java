@@ -122,25 +122,28 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
     public void MenuPrincipal (View view)
     {
         //ir a seleccion de dificultad
-        prueba.pause();
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("¿Desea regresar a menú principal?");
-        builder.setMessage("Se perderá el progreso de la partida");
-        builder.setPositiveButton("Si. Regresar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i){
-                regresoMenu();
-            }
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i){
-                dialogInterface.dismiss();
-                prueba.resume();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        if (prueba.isActive()) {
+            prueba.pause();
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("¿Desea regresar a menú principal?");
+            builder.setMessage("Se perderá el progreso de la partida");
+            builder.setPositiveButton("Si. Regresar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    regresoMenu();
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    prueba.resume();
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+        else regresoMenu();
     }
 
     public void regresoMenu () {

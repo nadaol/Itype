@@ -1,20 +1,16 @@
 package com.example.itype;
 
 import android.content.Context;
-
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
-
 import org.junit.Test;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
-
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static androidx.test.espresso.action.ViewActions.pressKey;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.RootMatchers.withDecorView;
@@ -50,11 +46,6 @@ public class ControladorInicioSesionTest {
     }
 
     @Test
-    public void botonSalirExiste_vInicio() {
-        onView(withId(R.id.button_vInicioSalir)).check(matches(withText("Salir")));
-    }
-
-    @Test
     public void stringContrasenaExiste_vInicio() {
         onView(withId(R.id.textView_vInicioContrasena)).check(matches(withText("Contraseña")));
     }
@@ -76,12 +67,7 @@ public class ControladorInicioSesionTest {
 
     @Test
     public void botonRegistrarTactil_vInicio(){
-        onView(withId(R.id.button_vInicioSalir)).check(matches(isClickable()));
-    }
-
-    @Test
-    public void botonSalirTactil_vInicio(){
-        onView(withId(R.id.button_vInicioSalir)).check(matches(isClickable()));
+        onView(withId(R.id.button_vInicioRegistrar)).check(matches(isClickable()));
     }
 
 
@@ -134,16 +120,11 @@ public class ControladorInicioSesionTest {
     @Test
     public void ingresoIncorrecto_ErrorContrasena_VerificacionCorrecta_vInicio(){
         onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());
-        onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText("1"),closeSoftKeyboard());
+        onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText("2"),closeSoftKeyboard());
         onView(withId(R.id.button_vInicioIngresar)).perform(click());
         onView(withText("Usuario o contraseña incorrectos")).inRoot(withDecorView(not(is(reglaActividad.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
     }
 
-    /*@Test
-    public void switchToFragment() {
-        onView(withId(R.id.button_vInicioIngresar)).perform(click());
-        //Probar que se inicia el menu principal
-    }*/
-
 }
+
 

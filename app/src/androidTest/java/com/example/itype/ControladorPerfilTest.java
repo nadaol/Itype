@@ -1,17 +1,13 @@
 package com.example.itype;
 
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.test.rule.ActivityTestRule;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -44,6 +40,8 @@ public class ControladorPerfilTest {
     public void ExistenciaBotones()
     {
         Button btn = activity.findViewById(R.id.volver_btn);
+        assertNotNull(btn);
+        btn = activity.findViewById(R.id.volver_btn);
         assertNotNull(btn);
     }
 

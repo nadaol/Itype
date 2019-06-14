@@ -7,6 +7,7 @@ import java.util.ArrayList;
 //clase prueba en la se asigna un temporizador y se le avisa cada segundo la llamada de la funcion onTick y al finalizar la llamada de la funcion
 public class Prueba {
     private static Prueba unique;
+    private static boolean activo=false;
     private static Comportamiento_Generador generador;//tipo de generador para nuevaPalabra()
     private static Temporizador tempo;//Observador que implementa Tick() y finalizar()
     private static CountDownTimer timer;//Timer para la prueba
@@ -52,6 +53,7 @@ public class Prueba {
     //Emprieza a correr la cuenta regresiva de 'TiempoPrueba' segundos
     public static void empezar()
     {
+        activo=true;
         Caractateres_Correctos=0;
         empezar2(TiempoPrueba);
     }
@@ -75,6 +77,11 @@ public class Prueba {
             }
 
         }.start();
+    }
+
+    public boolean isActive()
+    {
+        return activo;
     }
 
     public static void addCorrectChars(int CorrectChars)
