@@ -13,18 +13,14 @@
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:alpha="0.6"
-        android:background="@color/darkGrey"
         android:onClick="regresoInicioSesion"
         android:text="@string/texto_regresoinicio"
-        android:textColor="@color/lightGrey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.576"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_vRegContra" />
+        app:layout_constraintTop_toBottomOf="@+id/button_vRegRegistrar" />
 
     <Button
         android:id="@+id/button_vRegRegistrar"
@@ -32,16 +28,12 @@
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:alpha="0.6"
-        android:background="@color/darkGrey"
         android:onClick="userReg"
         android:text="@string/registrar"
-        android:textColor="@color/lightGrey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_vRegContra" />
 
@@ -49,14 +41,13 @@
         android:id="@+id/editText_vRegContra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:textSize="18sp"
         android:inputType="textPassword|textNoSuggestions"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_vRegUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_vRegContra" />
 
     <TextView
         android:id="@+id/textView_vRegBienvenido"
@@ -85,35 +76,37 @@
         android:id="@+id/textView_vRegContra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
         android:text="@string/contra"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toTopOf="@+id/editText_vRegContra"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_vRegUsuario" />
 
     <EditText
         android:id="@+id/editText_vRegUsuario"
         android:layout_width="212dp"
         android:layout_height="47dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textNoSuggestions|textVisiblePassword"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_vRegIngreseUC" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_vRegUsuario" />
 
     <TextView
         android:id="@+id/textView_vRegUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="56dp"
         android:text="@string/usuario"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toTopOf="@+id/editText_vRegUsuario"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_vRegIngreseUC" />
 </android.support.constraint.ConstraintLayout>

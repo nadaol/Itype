@@ -6,23 +6,25 @@ import okhttp3.Response;
 import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 
-//clase unica(singletnon)para la conexión tcp/ip con el servidor local
 public final class WebSocketConnection extends WebSocketListener {
-    private static ArrayList<Observador> observadores;//los observadores(interfaces) que recibe las actualizaciones
-    private static WebSocket ws;//el websocket de la conexion al servidor local
-    private static WebSocketConnection unique;
+    private static ArrayList<Observador> observadores;//el observador(interface) que recibe los updates
+    private static WebSocket ws;
+    private static WebSocketConnection unique;//el websocket de la conexion al servidor local
     private static final int NORMAL_CLOSURE_STATUS = 1000;
 
-    private WebSocketConnection() { }
+    private WebSocketConnection()
+    {
+
+    }
 
     @Override
     public void onOpen(WebSocket webSocket, Response response) {
-        ws=webSocket;
+        ws=webSocket;//al iniciar la conexion enviar string initial
     }
 
     @Override
     public void onMessage(WebSocket webSocket, String text) {
-        if(observadores!=null) {//al recibir msg del servidor local notifica a todos los observadores la actualizacion
+        if(observadores!=null) {
             for (int i = 0; i < observadores.size(); i++) {
                 observadores.get(i).actualizar(text);
             }
@@ -41,9 +43,14 @@ public final class WebSocketConnection extends WebSocketListener {
                 }
             }
         }
-        public static WebSocketConnection getInstance(){if(unique==null) {unique = new WebSocketConnection(); }return unique;}
+
+        public static WebSocketConnection getInstance(){
+        if(unique==null) {
+            unique = new WebSocketConnection();}
+        return unique;}
+
         public static void addObs(Observador o){if(observadores==null){getInstance();observadores = new ArrayList<>();}observadores.add(o);}
         public static void delObs(Observador o){observadores.remove(o);}
-        public static void enviar(String messege){ws.send(messege);}
+        public static void enviar(String mensaje){ws.send(mensaje);}
 
 }

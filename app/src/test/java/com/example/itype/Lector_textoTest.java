@@ -12,15 +12,15 @@ import static junit.framework.TestCase.assertNotNull;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class Lector_textoTest {
+public class Lector_TextoTest {
 
-    private Lector_texto lector;
+    private Lector_Texto lector;
     private ArrayList<String> lectura;
 
     @Test
     @Before
     public void Prueba1_Creacion_Lector() throws IOException {
-        lector = new Lector_texto("words.txt");
+        lector = new Lector_Texto("words.txt");
         assertNotNull(lector);
     }
 

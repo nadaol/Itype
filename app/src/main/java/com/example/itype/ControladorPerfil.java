@@ -9,11 +9,12 @@ import android.widget.TextView;
 
 public class ControladorPerfil extends AppCompatActivity {
 
-    private Button Volver;//boton para ir a seleccion de dificultad(nuevo juego)
-    private TextView UserName;
+    private Button salir;//boton para ir al inicio de sesion
+    private Button volver;//boton para ir a seleccion de dificultad(nuevo juego)
+    private TextView username;
     private TextView jugadas;
-    private TextView VelProm;
-    private TextView VelMax;
+    private TextView velProm;
+    private TextView velMax;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,26 +22,31 @@ public class ControladorPerfil extends AppCompatActivity {
         setContentView(R.layout.vista_perfil);
         //Obtiene nueva informacion de usuario
         try {Usuario.actualizarInfo();}catch(Exception e){e.printStackTrace();}
-        Volver = findViewById(R.id.volver_btn);
+        volver = findViewById(R.id.volver_btn);
+        salir = findViewById(R.id.salir_btn);
         jugadas = findViewById(R.id.jugadas);
-        VelProm = findViewById(R.id.VelProm);
-        VelMax = findViewById(R.id.VelMax);
-        UserName = findViewById(R.id.UserName);
-        VelProm.setText(Usuario.getVelProm());
-        VelMax.setText(Usuario.getVelMax());
-        UserName.setText(Usuario.getName());
+        velProm = findViewById(R.id.VelProm);
+        velMax = findViewById(R.id.VelMax);
+        username = findViewById(R.id.UserName);
+        velProm.setText(Usuario.getVelProm());
+        velMax.setText(Usuario.getVelMax());
+        username.setText(Usuario.getName());
         jugadas.setText(Usuario.getJugadas());
        }
 
-    public void MenuPrincipal(View view)
+    public void irMenuPrincipal(View view)
     {
         Intent i = new Intent(this, ControladorMenuPrincipal.class);
         startActivity(i);
-        finish();
     }
+
+    public void salir(View view)
+    {
+        Intent i = new Intent(this, ControladorInicioSesion.class);
+        startActivity(i);
+    }
+
     @Override
     public void onBackPressed() {
-
     }
-
-    }
+}

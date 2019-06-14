@@ -11,7 +11,7 @@
     <string name="contra_prueba_texto">1234</string>
     <string name="ingresar">Ingresar</string>
     <string name="User2">Usuario : </string>
-    <string name="registrar">Registrarse</string>
+    <string name="registrar">Registrar</string>
     <string name="texto_bienvenida">¡Bienvenido a IType!</string>
     <string name="texto_registro">Ingrese un nuevo usuario y contraseña para poder acceder a la aplicación</string>
     <string name="texto_regresoinicio">Volver</string>
@@ -21,13 +21,16 @@
     <string name="men_principal">MENÚ PRINCIPAL</string>
     <string name="texto_estad">Estadísticas</string>
     <string name="texto_salir_menup">Salir</string>
+
     <string name="titulo_sel_nivel">Seleccione la dificultad del juego:</string>
     <string name="texto_facil">Fácil</string>
+    <string name="texto_medio">Medio</string>
+    <string name="texto_dificil">Difícil</string>
+
     <string name="VelProm">Velocidad Promedio : </string>
     <string name="VelMax">Velocidad Maxima : </string>
     <string name="Volver">Volver a jugar</string>
-    <string name="texto_medio">Medio</string>
-    <string name="texto_dificil">Difícil</string>
+
     <string name="texto_regresoMenu">Volver</string>
     <string name="texto_vEstTitulo">Estadísticas de juego</string>
     <string name="Partidas">Jugadas : </string>
@@ -55,7 +58,6 @@
     <string name="CreateUsr">Register now!</string>
     <string name="dificil">Dificil</string>
     <string name="facil">Facil</string>
-    <string name="Inicio">Ir al Inicio</string>
     <string name="intermedio">Intermedio</string>
     <string name="UsersOn">N° Usuarios en Linea : </string>
     <string name="selecciondificultad">Seleccione la dificultad</string>
@@ -63,10 +65,5 @@
     <string name="velocidad">Velocidad: </string>
     <string name="comenzar">¡Comenzar!</string>
     <string name="salir">Salir</string>
-    <string-array name="dificultad">
-        <item>Facil</item>
-        <item>Medio</item>
-        <item>Dificil</item>
-    </string-array>
 
 </resources>

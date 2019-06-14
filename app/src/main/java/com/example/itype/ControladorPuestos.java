@@ -11,11 +11,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-
 public class ControladorPuestos extends AppCompatActivity implements Observador {
-    private Button Siguiente;
+    private Button siguiente;
     private Button Volver;
     private static WebSocketConnection Wc;
 
@@ -24,10 +21,29 @@ public class ControladorPuestos extends AppCompatActivity implements Observador 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vista_puestos);
         Volver = findViewById(R.id.volver_btn);
-        Siguiente = findViewById(R.id.siguiente_btn);
+        siguiente = findViewById(R.id.siguiente_btn);
 
         //me inscribo a la conexion para que me lleguen los updates
         WebSocketConnection.addObs(this);
+ /*
+        0.-+
+        //cambio a la vista de seleccion de dificultad
+        Volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(this,Seleccion_Controller.class);
+                startActivity(intent2);
+            }}); */
+
+        //cambio a la vista de info de usuario
+        siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ControladorPerfil.class);
+                startActivity(intent);
+            }});
+
+
     }
 
     public void actualizar(final String s) {//update view on UiThread
@@ -39,12 +55,12 @@ public class ControladorPuestos extends AppCompatActivity implements Observador 
 
             else if (s.startsWith("U"))//recieving table Update from websocket
                 {
-                    UpdateTable(s.substring(1));
+                    actualizarTabla(s.substring(1));
                 }
         }
  });
 }
-    public void UpdateTable(String tabla)
+    public void actualizarTabla(String tabla)
     {
         String[] filas = tabla.split("\\r?\\n");//obtengo filas de la tabla en un array
         TableLayout table = findViewById(R.id.stadistic_table);
@@ -61,22 +77,19 @@ public class ControladorPuestos extends AppCompatActivity implements Observador 
 
     }
 
-    public void MenuPrincipal(View view)
+    public void irMenuPrincipal(View view)
     {
         Intent i = new Intent(this, ControladorMenuPrincipal.class);
         startActivity(i);
-        finish();
     }
 
-    public void siguiente(View view)
+    public void irPerfil(View view)
     {
-        Intent intent = new Intent(getApplicationContext(), ControladorPerfil.class);
-        startActivity(intent);
-        finish();
+        Intent i = new Intent(this, ControladorPerfil.class);
+        startActivity(i);
     }
+
     @Override
     public void onBackPressed() {
-
     }
-
 }

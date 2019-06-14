@@ -396,14 +396,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="32dp"
-        android:alpha="0.6"
-        android:background="@color/darkGrey"
-        android:onClick="MenuPrincipal"
+        android:onClick="irMenuPrincipal"
         android:text="@string/men_principal"
-        android:textColor="@color/lightGrey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/siguiente_btn"
-        app:layout_constraintHorizontal_bias="0.312"
+        app:layout_constraintHorizontal_bias="0.784"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -415,14 +412,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="32dp"
-        android:alpha="0.6"
-        android:onClick="siguiente"
-        android:background="@color/green"
         android:text="@string/Sig"
-        android:textColor="@color/black"
+        android:onClick="irPerfil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintHorizontal_bias="0.729"
         app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
