@@ -28,11 +28,13 @@ public class ControladorSeleccionNivel extends AppCompatActivity implements View
         Intent i = new Intent(this,ControladorActiva.class);
         i.putExtra("dificultad",dificultad_juego);
         startActivity(i);
+        finish();
     }
 
     public void regresoMenu (View view) {
         Intent i = new Intent(this, ControladorMenuPrincipal.class);
         startActivity(i);
+        finish();
     }
 
     @Override
