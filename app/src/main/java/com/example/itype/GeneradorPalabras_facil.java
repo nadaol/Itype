@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 //devuelve la palabra con menos dificultad de 3 elegidas al azar
-public class GeneradorPalabras_Facil implements Comportamiento_Generador{
+public class GeneradorPalabras_facil implements Comportamiento_Generador{
     public String generar(ArrayList<String> palabras)
     {
         Random rand = new Random();

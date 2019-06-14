@@ -6,10 +6,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class Lector_Texto {
+public class Lector_texto {
    private ArrayList<String> lectura_lineas;
 
-    public Lector_Texto(String path) throws IOException {
+    public Lector_texto(String path) throws IOException {
          lectura_lineas = new ArrayList<String>();
         InputStream is = this.getClass().getClassLoader().getResourceAsStream(path);
         //lee El Archivo y lo coloca en un Arreglo de Strings para luego retornarlo
