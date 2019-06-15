@@ -35,66 +35,66 @@ public class ControladorInicioSesionTest {
             new ActivityTestRule<>(ControladorInicioSesion.class);
 
     @Test
-    public void useAppContext() {
+    public void useAppContext() { //PU1.1
         // Context of the app under test.
         Context appContext = ApplicationProvider.getApplicationContext();
         assertEquals("com.example.itype", appContext.getPackageName());
     }
     @Test
-    public void stringUsuarioExiste_vInicio() {
+    public void stringUsuarioExiste_vInicio() { //PU1.2
         onView(withId(R.id.textView_vInicioUsuario)).check(matches(withText("Usuario")));
     }
 
     @Test
-    public void stringContrasenaExiste_vInicio() {
+    public void stringContrasenaExiste_vInicio() { //PU1.3
         onView(withId(R.id.textView_vInicioContrasena)).check(matches(withText("Contraseña")));
     }
 
     @Test
-    public void botonIngresarExiste_vInicio(){
+    public void botonIngresarExiste_vInicio(){ //PU1.4
         onView(withId(R.id.button_vInicioIngresar)).check(matches(withText("Ingresar")));
     }
 
     @Test
-    public void botonRegistrarExiste_vInicio(){
+    public void botonRegistrarExiste_vInicio(){ //PU1.5
         onView(withId(R.id.button_vInicioRegistrar)).check(matches(withText("Registrarse")));
     }
 
     @Test
-    public void botonIngresarTactil_vInicio(){
+    public void botonIngresarTactil_vInicio(){ //PU1.6
         onView(withId(R.id.button_vInicioIngresar)).check(matches(isClickable()));
     }
 
     @Test
-    public void botonRegistrarTactil_vInicio(){
+    public void botonRegistrarTactil_vInicio(){ //PU1.7
         onView(withId(R.id.button_vInicioRegistrar)).check(matches(isClickable()));
     }
 
 
     @Test
-    public void cajaTextoUsuarioEditable_vInicio(){
+    public void cajaTextoUsuarioEditable_vInicio(){ //PU1.8
         onView(withId(R.id.editText_vInicioUsuario)).check(matches(supportsInputMethods()));
     }
 
     @Test
-    public void cajaTextoContrasenaEditable_vInicio(){
-        onView(withId(R.id.editText_vInicioUsuario)).check(matches(supportsInputMethods()));
+    public void cajaTextoContrasenaEditable_vInicio(){ //PU1.9
+        onView(withId(R.id.editText_vInicioContra)).check(matches(supportsInputMethods()));
 
     }
 
     @Test
-    public void contrasenaPrueba_vInicio(){
-        onView(withId(R.id.editText_vInicioUsuario)).check(matches(supportsInputMethods()));
-
+    public void usuarioPrueba_vInicio(){ //PU1.10
+        onView(withId(R.id.editText_vInicioUsuario)).perform(typeText("usuarioprueba"));
+        onView(withId(R.id.editText_vInicioUsuario)).check(matches(withText("usuarioprueba")));
     }
     @Test
-    public void usuarioPrueba_vInicio(){
-        onView(withId(R.id.editText_vInicioUsuario)).check(matches(supportsInputMethods()));
-
+    public void contrasenaPrueba_vInicio() { //PU1.11
+        onView(withId(R.id.editText_vInicioContra)).perform(typeText("contraprueba"));
+        onView(withId(R.id.editText_vInicioContra)).check(matches(withText("contraprueba")));
     }
 
     @Test
-    public void ingresoCorrecto_VerificacionCorrecta_vInicio(){
+    public void ingresoCorrecto_VerificacionCorrecta_vInicio(){ //PU1.12
         onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());
         onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText(contraRegistrado),closeSoftKeyboard());
         onView(withId(R.id.button_vInicioIngresar)).perform(click());
@@ -102,15 +102,15 @@ public class ControladorInicioSesionTest {
     }
 
     @Test
-    public void ingresoSinContra_MuestraMensaje_vInicio(){
-        onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText("prueba12345"),closeSoftKeyboard());
+    public void ingresoSinContra_MuestraMensaje_vInicio(){ //PU1.13
+        onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());
         onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText(""),closeSoftKeyboard());
         onView(withId(R.id.button_vInicioIngresar)).perform(click());
         onView(withText("Campos vacíos, caracteres especiales o espacios. Ingrese solo letras o numeros")).inRoot(withDecorView(not(is(reglaActividad.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
     }
 
     @Test
-    public void ingresoContraInvalida_MuestraMensaje_vInicio(){
+    public void ingresoContraInvalida_MuestraMensaje_vInicio(){ //PU1.14
         onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText("prueba12345"),closeSoftKeyboard());
         onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText("&"),closeSoftKeyboard());
         onView(withId(R.id.button_vInicioIngresar)).perform(click());
@@ -118,13 +118,22 @@ public class ControladorInicioSesionTest {
     }
 
     @Test
-    public void ingresoIncorrecto_ErrorContrasena_VerificacionCorrecta_vInicio(){
+    public void ingresoIncorrecto_ErrorContrasena_VerificacionCorrecta_vInicio(){ //PU1.15
         onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());
         onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText("2"),closeSoftKeyboard());
         onView(withId(R.id.button_vInicioIngresar)).perform(click());
         onView(withText("Usuario o contraseña incorrectos")).inRoot(withDecorView(not(is(reglaActividad.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
     }
 
+    @Test
+    public void botonSalirExiste_vInicio(){ //PU1.16
+        onView(withId(R.id.button_vInicioSalir)).check(matches(withText("Salir")));
+    }
+
+    @Test
+    public void botonSalirTactil_vInicio(){ //PU1.17
+        onView(withId(R.id.button_vInicioSalir)).check(matches(isClickable()));
+    }
 }
 
 

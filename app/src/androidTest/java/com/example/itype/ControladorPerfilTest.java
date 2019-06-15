@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 public class ControladorPerfilTest {
 
     @Rule
-    public ActivityTestRule<ControladorPerfil> TestRule=new ActivityTestRule<ControladorPerfil>(ControladorPerfil.class);
+    public ActivityTestRule<ControladorPerfil> TestRule = new ActivityTestRule<ControladorPerfil>(ControladorPerfil.class);
 
     private ControladorPerfil activity = null;
 
@@ -24,7 +24,7 @@ public class ControladorPerfilTest {
     }
 
     @Test
-    public void ExistenciaTextViews()
+    public void ExistenciaTextViews()   //PU9.1
     {
         View view = activity.findViewById(R.id.txtUsuario);
         assertNotNull(view);
@@ -37,7 +37,7 @@ public class ControladorPerfilTest {
     }
 
     @Test
-    public void ExistenciaBotones()
+    public void ExistenciaBotones() //PU9.2
     {
         Button btn = activity.findViewById(R.id.volver_btn);
         assertNotNull(btn);
@@ -46,7 +46,7 @@ public class ControladorPerfilTest {
     }
 
     @Test
-    public void ContenidoTextViews()
+    public void ContenidoTextViews() //PU9.3
     {
         TextView view = activity.findViewById(R.id.txtUsuario);
         assertEquals("Usuario :",view.getText().toString());
@@ -59,13 +59,11 @@ public class ControladorPerfilTest {
     }
 
     @Test
-    public void ContenidoBotones()
+    public void ContenidoBotones() //PU9.4
     {
         Button btn = activity.findViewById(R.id.volver_btn);
         assertEquals("MENÚ PRINCIPAL",btn.getText().toString());
     }
-
-
 
     @After
     public void tearDown() throws Exception {

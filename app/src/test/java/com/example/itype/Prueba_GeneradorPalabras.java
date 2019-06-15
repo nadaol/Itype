@@ -20,21 +20,21 @@ public class Prueba_GeneradorPalabras {
     Comportamiento_Generador difGen = new GeneradorPalabras_dificil();
 
     @Test
-    public void PruebaFacil_generar() {
+    public void PruebaFacil_generar() { //PU7.1
         int count=0;
         for(int i=0;i<1000;i++){if(facilGen.generar(palabras).equals("facil")){count++;}}
         assertTrue(count>333);
     }
 
     @Test
-    public void PruebaIntermedio_generar() {
+    public void PruebaIntermedio_generar() { //PU7.2
         int count=0;
         for(int i=0;i<1000;i++){if(interGen.generar(palabras).equals("medio")){count++;}}
         assertTrue(count>333);
     }
 
     @Test
-    public void PruebaDificil_generar() {
+    public void PruebaDificil_generar() { //PU7.3
         int count=0;
         for(int i=0;i<1000;i++){if(difGen.generar(palabras).equals("dificil")){count++;}}
         assertTrue(count>333);

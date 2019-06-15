@@ -19,13 +19,13 @@ public class Lector_textoTest {
 
     @Test
     @Before
-    public void Prueba1_Creacion_Lector() throws IOException {
+    public void Prueba1_Creacion_Lector() throws IOException { //PU6.1
         lector = new Lector_texto("words.txt");
         assertNotNull(lector);
     }
 
     @Test
-    public void Prueba2_LecturaPalabras() {
+    public void Prueba2_LecturaPalabras() { //PU6.2
             lectura =lector.getArray();
          assertNotNull(lectura);
     }

@@ -31,13 +31,13 @@ public class ControladorActivaTest {
     }
 
     @Test
-    public void Prueba1_ExistenciaBotones() {
+    public void Prueba1_ExistenciaBotones() { //PU5.1
         assertNotNull(activity.findViewById(R.id.comenzar_btn));
         assertNotNull(activity.findViewById(R.id.menuPrincipal_btn));
     }
 
     @Test
-    public void Prueba2_ExistenciaTextViews() {
+    public void Prueba2_ExistenciaTextViews() { //PU5.2
         assertNotNull(activity.findViewById(R.id.Entrada_Etext));
         assertNotNull(activity.findViewById(R.id.Tiempo_Tview));
         assertNotNull(activity.findViewById(R.id.velocidad_Tview));
@@ -47,7 +47,7 @@ public class ControladorActivaTest {
     }
 
     @Test
-    public void Prueba3_ContenidoTextViews() {
+    public void Prueba3_ContenidoTextViews() { //PU5.3
         EditText entrada = (EditText) activity.findViewById(R.id.Entrada_Etext);
         TextView Tiempo = (TextView) activity.findViewById(R.id.Tiempo_Tview);
         TextView miVel = (TextView) activity.findViewById(R.id.velocidad_Tview);
@@ -60,12 +60,12 @@ public class ControladorActivaTest {
 
 
     @Test
-    public void Prueba4_Tiempo() {
+    public void Prueba4_Tiempo() { //PU5.4
         assertNotNull(activity.findViewById(R.id.comenzar_btn));
     }
 
     @Test
-    public void Prueba5_finalizar() throws Exception {//completar
+    public void Prueba5_finalizar() throws Exception { //PU5.5
         TextView Tiempo = (TextView) activity.findViewById(R.id.Tiempo_Tview);
         Button comenzar = (Button) activity.findViewById(R.id.comenzar_btn);
         onView(withId(comenzar.getId())).perform(click());

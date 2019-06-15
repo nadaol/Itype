@@ -35,7 +35,7 @@ public class ControladorPuestosTest {
     }
 
     @Test
-    public void ExistenciaTextViews()
+    public void ExistenciaTextViews()   //PU8.1
     {
         View view = activity.findViewById(R.id.users);
         assertNotNull(view);
@@ -45,7 +45,7 @@ public class ControladorPuestosTest {
         assertNotNull(view);
     }
     @Test
-    public void ExistenciaBotones()
+    public void ExistenciaBotones() //PU8.2
     {
         Button btn = activity.findViewById(R.id.volver_btn);
         assertNotNull(btn);
@@ -54,14 +54,14 @@ public class ControladorPuestosTest {
     }
 
     @Test
-    public void ExistenciaTabla()
+    public void ExistenciaTabla() //PU8.3
     {
         TableLayout table = (TableLayout)activity.findViewById(R.id.stadistic_table);
         assertNotNull(table);
     }
 
     @Test
-    public void ExistenciaFilas()
+    public void ExistenciaFilas() //PU8.4
     {
         TableLayout table = (TableLayout)activity.findViewById(R.id.stadistic_table);
         assertNotNull(table);
@@ -73,7 +73,7 @@ public class ControladorPuestosTest {
     }
 
     @Test
-    public void ContenidoTextViews()
+    public void ContenidoTextViews() //PU8.5
     {
         TextView view = activity.findViewById(R.id.users);
         assertEquals("Nombre de Usuario",view.getText().toString());
@@ -83,7 +83,7 @@ public class ControladorPuestosTest {
         assertEquals("Score",view.getText().toString());
     }
     @Test
-    public void ContenidoBotones()
+    public void ContenidoBotones() //PU8.6
     {
         Button btn = activity.findViewById(R.id.volver_btn);
         assertEquals("MENÚ PRINCIPAL",btn.getText().toString());
@@ -91,7 +91,7 @@ public class ControladorPuestosTest {
         assertEquals("Siguiente",btn.getText().toString());
     }
     @Test
-    public void FuncionActualizarTabla()
+    public void FuncionActualizarTabla() //PU8.7
     {
         activity.actualizar("Uusuario1,10\nusuario2,20\nusuario3,30\nusuario4,40\nusuario5,50\nusuario6,60\nusuario7,70\nusuario8,80\nusuario9,90\nusuario10,100\n");
         try{
@@ -139,7 +139,7 @@ public class ControladorPuestosTest {
     }
 
     @Test
-    public void FuncionalidadBotonSiguiente()
+    public void FuncionalidadBotonSiguiente() //PU8.8
     {
         assertNotNull(activity.findViewById(R.id.siguiente_btn));
         onView(withId(R.id.siguiente_btn)).perform(click());
