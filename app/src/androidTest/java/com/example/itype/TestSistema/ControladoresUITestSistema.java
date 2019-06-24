@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.IdlingPolicies;
 import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.ViewAssertion;
@@ -121,6 +122,38 @@ public class ControladoresUITestSistema {
         onView(withId(R.id.siguiente_btn)).perform(click());
         onView(withId(R.id.UserName)).check(matches(withText(usuarioRegistrado)));
 
+    }
+
+    @Test
+    public void Respuesta_max3Seg(){ //TRN1.1-TRN1.3 TESTEO DE RESPUESTA MENOR A 3 SEG
+        IdlingPolicies.setMasterPolicyTimeout(3000, TimeUnit.MILLISECONDS);
+        onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());//Ingreso credenciales
+        onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText(contraRegistrado),closeSoftKeyboard());
+        onView(withId(R.id.button_vInicioIngresar)).perform(click());//Clic
+        onView(withId(R.id.button_vMenuPerfil)).perform(click());
+        onView(withId(R.id.volver_btn)).perform(click());
+        onView(withId(R.id.button_vMenuSalir)).perform(click());
+        onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());//Ingreso credenciales
+        onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText(contraRegistrado),closeSoftKeyboard());
+        onView(withId(R.id.button_vInicioIngresar)).perform(click());//Clic
+        onView(withId(R.id.button_vMenuInicioJuego)).perform(click());//Selecciono opcion para jugar en menu principal y clic
+        onView(withId(R.id.button_vSelNivMedio)).perform(click()); // clic en opcion medio
+        onView(withId(R.id.menuPrincipal_btn)).perform(click());
+        onView(withId(R.id.button_vMenuInicioJuego)).perform(click());//Selecciono opcion para jugar en menu principal y clic
+        onView(withId(R.id.button_vSelNivDificil)).perform(click()); // clic en opcion dificil
+        onView(withId(R.id.comenzar_btn)).perform(click()); // clic en iniciar la jugada
+        onView(withId(R.id.menuPrincipal_btn)).perform(click());
+        onView(withText("Si. Regresar")).perform(click());
+        onView(withId(R.id.button_vMenuInicioJuego)).perform(click());//Selecciono opcion para jugar en menu principal y clic
+        onView(withId(R.id.button_vSelNivFacil)).perform(click()); // clic en opcion facil
+        onView(withId(R.id.comenzar_btn)).perform(click());
+        try {
+            Thread.sleep(30000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        onView(withId(R.id.siguiente_btn)).perform(click());
+        onView(withId(R.id.volver_btn)).perform(click());
     }
 
 }
