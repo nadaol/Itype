@@ -1,4 +1,4 @@
-package com.example.itype.IntegrationTests;
+package com.example.itype.TestIntegracion;
 
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -32,7 +32,7 @@ public class ControladorInicioSesionIT {
             new IntentsTestRule<>(ControladorInicioSesion.class);
 
     @Test
-    public void despliegueMenuPrincipal_vInicioSesion() {
+    public void despliegueMenuPrincipal_vInicioSesion() { //PI2.1
         //Pruebo la existencia del boton Ingresar
         onView(withId(R.id.button_vInicioIngresar)).check(matches(notNullValue()));
         onView(withId(R.id.button_vInicioIngresar)).check(matches(withText("Ingresar")));
@@ -46,7 +46,7 @@ public class ControladorInicioSesionIT {
     }
 
     @Test
-    public void despliegueRegistro_vInicioSesion() {
+    public void despliegueRegistro_vInicioSesion() { //PI2.2
         onView(withId(R.id.button_vInicioRegistrar)).check(matches(notNullValue()));
         onView(withId(R.id.button_vInicioRegistrar)).check(matches(withText("Registrarse")));
         onView(withId(R.id.button_vInicioRegistrar)).perform(click());
@@ -54,7 +54,7 @@ public class ControladorInicioSesionIT {
     }
 
     @Test
-    public void registro_vInicioSesion() {
+    public void registro_vInicioSesion() { //PI2.3
         onView(withId(R.id.button_vInicioRegistrar)).check(matches(notNullValue()));
         onView(withId(R.id.button_vInicioRegistrar)).check(matches(withText("Registrarse")));
         //Ir a registrar
@@ -69,7 +69,7 @@ public class ControladorInicioSesionIT {
     }
 
     @Test
-    public void registroInicio_vInicioSesion() {
+    public void registroInicio_vInicioSesion() { //PI2.4
         onView(withId(R.id.button_vInicioRegistrar)).check(matches(notNullValue()));
         onView(withId(R.id.button_vInicioRegistrar)).check(matches(withText("Registrarse")));
         //Ir a registrar

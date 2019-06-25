@@ -1,4 +1,4 @@
-package com.example.itype.IntegrationTests;
+package com.example.itype.TestIntegracion;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
@@ -25,7 +25,7 @@ public class ControladorPerfilIT{
     public IntentsTestRule <ControladorPerfil> reglaActividad = new IntentsTestRule<>(ControladorPerfil.class);
 
     @Test
-    public void despliegueMenuPrincipal_vPerfil() {
+    public void despliegueMenuPrincipal_vPerfil() { //PI4.1
         //Pruebo la existencia del boton menu principal
         onView(withId(R.id.volver_btn)).check(matches(notNullValue()));
         onView(withId(R.id.volver_btn)).check(matches(withText("MENÚ PRINCIPAL")));

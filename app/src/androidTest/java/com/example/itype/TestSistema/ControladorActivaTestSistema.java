@@ -39,7 +39,8 @@ public class ControladorActivaTestSistema {
     public ActivityTestRule<ControladorActiva> reglaActActiva = new ActivityTestRule<>(ControladorActiva.class);
 
     @Test
-    public void prueba_jugadaPalabra() {          // Realizo la prueba entera, no escribo palabras, vuelvo a menu principal
+    public void prueba_jugadaPalabra() {     // PS1.1
+            // Realizo la prueba entera, no escribo palabras, vuelvo a menu principal
         onView(withId(R.id.comenzar_btn)).perform(click()); // clic en iniciar la jugada
         //Espero 5 segundos
         try{Thread.sleep(TimeUnit.SECONDS.toMillis(5));}
@@ -51,7 +52,8 @@ public class ControladorActivaTestSistema {
     }
 
     @Test
-    public void prueba_jugadaPerfecta() {          // Realizo la prueba entera, no escribo palabras, vuelvo a menu principal
+    public void prueba_jugadaPerfecta() {      // PS1.2
+        // Realizo la prueba entera, no escribo palabras, vuelvo a menu principal
         onView(withId(R.id.comenzar_btn)).perform(click()); // clic en iniciar la jugada
         boolean fin = false;
         TextView reloj = (TextView) reglaActActiva.getActivity().findViewById(R.id.Tiempo_Tview);
@@ -71,7 +73,8 @@ public class ControladorActivaTestSistema {
     }
 
     @Test
-    public void prueba_jugadaPerfectaMayuscula() {          // TR1.2
+    public void prueba_jugadaPerfectaMayuscula() {      // PS1.3
+        // TR1.2
         onView(withId(R.id.comenzar_btn)).perform(click()); // clic en iniciar la jugada
         boolean fin = false;
         TextView reloj = (TextView) reglaActActiva.getActivity().findViewById(R.id.Tiempo_Tview);
@@ -91,7 +94,8 @@ public class ControladorActivaTestSistema {
     }
 
     @Test
-    public void prueba_palabraBorrada() {          // TR1.3
+    public void prueba_palabraBorrada() {          // PS1.4
+        // TR1.3
         onView(withId(R.id.comenzar_btn)).perform(click()); // clic en iniciar la jugada
             TextView textView = (TextView) reglaActActiva.getActivity().findViewById(R.id.Palabra_modelo);
             String palabra = textView.getText().toString();
@@ -100,7 +104,8 @@ public class ControladorActivaTestSistema {
     }
 
     @Test
-    public void prueba_cantPalabrasModelo() {          // TR2.5
+    public void prueba_cantPalabrasModelo() {      // PS1.5
+        // TR2.5
         boolean espacio = false;
         onView(withId(R.id.comenzar_btn)).perform(click()); // clic en iniciar la jugada
         boolean esdoble = false;

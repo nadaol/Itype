@@ -1,4 +1,4 @@
-package com.example.itype.IntegrationTests;
+package com.example.itype.TestIntegracion;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
@@ -26,7 +26,7 @@ public class ControladorRegistroIT{
             new IntentsTestRule<>(ControladorRegistro.class);
 
     @Test
-    public void despliegueInicioSesion_vRegistro() {
+    public void despliegueInicioSesion_vRegistro() { //PI6.1
         //Pruebo la existencia del boton Ingresar
         onView(withId(R.id.button_vRegInicio)).check(matches(notNullValue()));
         //Clic a Ingresar
@@ -37,7 +37,7 @@ public class ControladorRegistroIT{
     }
 
     @Test
-    public void registroVistaInicioRegistro_vRegistro() {
+    public void registroVistaInicioRegistro_vRegistro() { //PI6.2
         onView(withId(R.id.textView_vRegBienvenido)).check(matches(withText(("¡Bienvenido a IType!"))));
         //Clic a Ingresar
         onView(withId(R.id.button_vRegInicio)).perform(click());
