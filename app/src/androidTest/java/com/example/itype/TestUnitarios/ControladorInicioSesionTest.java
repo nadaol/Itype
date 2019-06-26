@@ -1,9 +1,14 @@
-package com.example.itype;
+package com.example.itype.TestUnitarios;
 
 import android.content.Context;
 import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
+
+import com.example.itype.ControladorInicioSesion;
+import com.example.itype.R;
+
 import org.junit.Test;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
@@ -42,7 +47,7 @@ public class ControladorInicioSesionTest {
     }
     @Test
     public void stringUsuarioExiste_vInicio() { //PU1.2
-        onView(withId(R.id.textView_vInicioUsuario)).check(matches(withText("Usuario")));
+        onView(ViewMatchers.withId(R.id.textView_vInicioUsuario)).check(matches(withText("Usuario")));
     }
 
     @Test

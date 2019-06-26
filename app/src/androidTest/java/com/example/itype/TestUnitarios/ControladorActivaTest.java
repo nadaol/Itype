@@ -1,9 +1,13 @@
-package com.example.itype;
+package com.example.itype.TestUnitarios;
 
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.test.rule.ActivityTestRule;
+
+import com.example.itype.ControladorActiva;
+import com.example.itype.R;
+
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Rule;
@@ -11,8 +15,13 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import java.util.concurrent.TimeUnit;
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.pressKey;
+import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -72,5 +81,30 @@ public class ControladorActivaTest {
         TimeUnit.SECONDS.sleep(time);//espera que la prueba finalize
         assertEquals("0", Tiempo.getText().toString());
         activity = null;
+    }
+
+    @Test
+    public void palabraMayusculas_vActiva() throws Exception { //PU5.6
+        onView(withId(R.id.comenzar_btn)).perform(click()); // clic en iniciar la jugada
+        boolean fin = false;
+        TextView reloj = (TextView) TestRule.getActivity().findViewById(R.id.Tiempo_Tview);
+        while (fin == false) {
+            TextView textView = (TextView) TestRule.getActivity().findViewById(R.id.Palabra_modelo);
+            String palabra = textView.getText().toString().toUpperCase();
+            onView(withId(R.id.Entrada_Etext)).perform(clearText(), typeText(palabra), pressKey(66));
+            if (reloj.getText().toString().equals("0")) {
+                fin = true;
+            }
+        }
+        activity = null;
+    }
+
+    @Test
+    public void prueba_palabraBorrada() {          //PU5.7
+        onView(withId(R.id.comenzar_btn)).perform(click()); // clic en iniciar la jugada
+        TextView textView = (TextView) TestRule.getActivity().findViewById(R.id.Palabra_modelo);
+        String palabra = textView.getText().toString();
+        onView(withId(R.id.Entrada_Etext)).perform(clearText(), typeText(palabra), pressKey(66));
+        onView(withId(R.id.Entrada_Etext)).check(matches(withText("")));
     }
 }

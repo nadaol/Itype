@@ -1,9 +1,14 @@
-package com.example.itype;
+package com.example.itype.TestUnitarios;
 
 import android.content.Context;
 import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
+
+import com.example.itype.ControladorSeleccionNivel;
+import com.example.itype.R;
+
 import org.junit.Test;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
@@ -30,7 +35,7 @@ public class ControladorSeleccionNivelTest {
     }
     @Test
     public void stringTituloExiste_vSelNiv() { //PU4.2
-        onView(withId(R.id.textView_vSelNivTexto)).check(matches(withText("Seleccione la dificultad del juego:")));
+        onView(ViewMatchers.withId(R.id.textView_vSelNivTexto)).check(matches(withText("Seleccione la dificultad del juego:")));
     }
 
     @Test

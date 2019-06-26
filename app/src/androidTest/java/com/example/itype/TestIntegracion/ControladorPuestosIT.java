@@ -1,4 +1,4 @@
-package com.example.itype.IntegrationTests;
+package com.example.itype.TestIntegracion;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
@@ -25,8 +25,7 @@ public class ControladorPuestosIT {
     public IntentsTestRule <ControladorPuestos> reglaActividad = new IntentsTestRule<>(ControladorPuestos.class);
 
     @Test
-    public void desplieguePerfil_vPuestos() {
-        //Pruebo la existencia del boton facil
+    public void desplieguePerfil_vPuestos() { //PI5.1
         onView(withId(R.id.siguiente_btn)).check(matches(notNullValue()));
         onView(withId(R.id.siguiente_btn)).check(matches(withText("Siguiente")));
         //Clic
@@ -36,8 +35,7 @@ public class ControladorPuestosIT {
     }
 
     @Test
-    public void despliegueMenuPrincipal_vPuestos() {
-        //Pruebo la existencia del boton facil
+    public void despliegueMenuPrincipal_vPuestos() { //PI5.2
         onView(withId(R.id.volver_btn)).check(matches(notNullValue()));
         onView(withId(R.id.volver_btn)).check(matches(withText("MENÚ PRINCIPAL")));
         //Clic

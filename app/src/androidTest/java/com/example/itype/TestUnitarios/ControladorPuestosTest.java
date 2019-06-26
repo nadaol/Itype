@@ -1,4 +1,4 @@
-package com.example.itype;
+package com.example.itype.TestUnitarios;
 
 import android.app.Activity;
 import android.app.Instrumentation;
@@ -8,6 +8,10 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import androidx.test.rule.ActivityTestRule;
+
+import com.example.itype.ControladorPuestos;
+import com.example.itype.R;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;

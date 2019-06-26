@@ -64,7 +64,8 @@ public class ControladoresUITestSistema {
     public ActivityTestRule<ControladorInicioSesion> reglaActInicioSesion = new ActivityTestRule<>(ControladorInicioSesion.class);
 
     @Test
-    public void prueba_jugadaVacia() {          // Realizo la prueba entera, no escribo palabras, vuelvo a menu principal
+    public void prueba_jugadaVacia() {           // PS2.1
+        // Realizo la prueba entera, no escribo palabras, vuelvo a menu principal
         onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());//Ingreso credenciales
         onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText(contraRegistrado),closeSoftKeyboard());
         onView(withId(R.id.button_vInicioIngresar)).perform(click());//Clic
@@ -79,13 +80,10 @@ public class ControladoresUITestSistema {
         onView(withId(R.id.button_vMenuInicioJuego)).check(matches(withText(("Iniciar juego"))));
     }
 
-    //@Test
-    //public void recorridaSalir1() {          // TR2.2.1
-    //    onView(withId(R.id.button_vInicioSalir)).perform(click());//Clic
-    //}
 
     @Test
-    public void recorridaSalir2() {          // TR2.2.2
+    public void recorridaSalir2() {          // PS2.2
+        // TR2.2.2
         onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());//Ingreso credenciales
         onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText(contraRegistrado),closeSoftKeyboard());
         onView(withId(R.id.button_vInicioIngresar)).perform(click());//Clic
@@ -94,7 +92,8 @@ public class ControladoresUITestSistema {
     }
 
     @Test
-    public void recorridaInterrumpirPrueba() {          // TR2.3
+    public void recorridaInterrumpirPrueba() {         // PS2.3
+        // TR2.3
         onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());//Ingreso credenciales
         onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText(contraRegistrado),closeSoftKeyboard());
         onView(withId(R.id.button_vInicioIngresar)).perform(click());//Clic
@@ -107,7 +106,8 @@ public class ControladoresUITestSistema {
     }
 
     @Test
-    public void verificacionPerfil(){ //TR2.4
+    public void verificacionPerfil(){               // PS2.4
+        //TR2.4
         onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());//Ingreso credenciales
         onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText(contraRegistrado),closeSoftKeyboard());
         onView(withId(R.id.button_vInicioIngresar)).perform(click());//Clic
@@ -125,7 +125,8 @@ public class ControladoresUITestSistema {
     }
 
     @Test
-    public void Respuesta_max3Seg(){ //TRN1.1-TRN1.3 TESTEO DE RESPUESTA MENOR A 3 SEG
+    public void Respuesta_max3Seg(){                // PS2.5
+        //TRN1.1-TRN1.3 TESTEO DE RESPUESTA MENOR A 3 SEG
         IdlingPolicies.setMasterPolicyTimeout(3000, TimeUnit.MILLISECONDS);
         onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());//Ingreso credenciales
         onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText(contraRegistrado),closeSoftKeyboard());
@@ -156,4 +157,13 @@ public class ControladoresUITestSistema {
         onView(withId(R.id.volver_btn)).perform(click());
     }
 
+    @Test
+    public void pruebaConexion20() {     //PS2.6 -> PRUEBA RN1.2
+        for(int i = 0; i < 20; i++){
+            onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());//Ingreso credenciales
+            onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText(contraRegistrado),closeSoftKeyboard());
+            onView(withId(R.id.button_vInicioIngresar)).perform(click());//Clic
+            onView(withId(R.id.button_vMenuSalir)).perform(click());// Vuelo al inicio
+        }
+    }
 }
