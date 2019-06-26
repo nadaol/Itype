@@ -37,7 +37,6 @@ stages:
   - build
   - test
   
-  
 
 # 1) Construccion de la aplicacion
 lintDebug:
