@@ -126,7 +126,7 @@ public  class ControladorActiva extends AppCompatActivity implements Temporizado
             prueba.pause();
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("¿Desea regresar a menú principal?");
-            builder.setMessage("Se perderá el progreso de la partida");
+            builder.setMessage("Se perdera el progreso de la partida");
             builder.setPositiveButton("Si. Regresar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {

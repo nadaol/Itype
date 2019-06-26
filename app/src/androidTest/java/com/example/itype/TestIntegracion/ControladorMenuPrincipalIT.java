@@ -1,4 +1,4 @@
-package com.example.itype.IntegrationTests;
+package com.example.itype.TestIntegracion;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
@@ -30,7 +30,7 @@ public class ControladorMenuPrincipalIT {
             new IntentsTestRule<>(ControladorMenuPrincipal.class);
 
     @Test
-    public void despliegueSeleccionNivel_vMenuPrincipal() {
+    public void despliegueSeleccionNivel_vMenuPrincipal() { //PI3.1
         //Pruebo la existencia del boton Ingresar
         onView(withId(R.id.button_vMenuInicioJuego)).check(matches(notNullValue()));
         //Clic a Ingresar
@@ -41,7 +41,7 @@ public class ControladorMenuPrincipalIT {
     }
 
     @Test
-    public void menuSeleccionMenu_vMenuPrincipal() {
+    public void menuSeleccionMenu_vMenuPrincipal() { //PI3.2
         onView(withId(R.id.button_vMenuInicioJuego)).perform(click());
         onView(withId(R.id.textView_vSelNivTexto)).check(matches(withText("Seleccione la dificultad del juego:")));
         onView(withId(R.id.button_vSelNivSalir)).perform(click());
@@ -50,7 +50,7 @@ public class ControladorMenuPrincipalIT {
     }
 
     @Test
-    public void desplieguePerfil_vMenuPrincipal() {
+    public void desplieguePerfil_vMenuPrincipal() { //PI3.3
         //Pruebo la existencia del boton Ingresar
         onView(withId(R.id.button_vMenuPerfil)).check(matches(notNullValue()));
         //Clic a Ingresar
@@ -61,7 +61,7 @@ public class ControladorMenuPrincipalIT {
     }
 
     @Test
-    public void menuPerfilMenu_vMenuPrincipal() {
+    public void menuPerfilMenu_vMenuPrincipal() { //PI3.4
         onView(withId(R.id.button_vMenuPerfil)).perform(click());
         onView(withId(R.id.txtVelProm)).check(matches(withText("Velocidad Promedio :")));
         onView(withId(R.id.volver_btn)).perform(click());
@@ -69,7 +69,7 @@ public class ControladorMenuPrincipalIT {
     }
 
     @Test
-    public void despliegueInicioSesion_vMenuPrincipal() {
+    public void despliegueInicioSesion_vMenuPrincipal() { //PI3.5
         //Pruebo la existencia del boton Ingresar
         onView(withId(R.id.button_vMenuSalir)).check(matches(notNullValue()));
         //Clic a Ingresar
@@ -80,7 +80,7 @@ public class ControladorMenuPrincipalIT {
     }
 
     @Test
-    public void menuInicioSesionMenu_vMenuPrincipal() {
+    public void menuInicioSesionMenu_vMenuPrincipal() { //PI3.6
         onView(withId(R.id.button_vMenuSalir)).perform(click());
         onView(withId(R.id.imageView4)).check(matches(notNullValue()));
         //Ingreso credenciales

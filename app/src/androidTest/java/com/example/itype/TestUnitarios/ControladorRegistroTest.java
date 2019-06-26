@@ -1,9 +1,15 @@
-package com.example.itype;
+package com.example.itype.TestUnitarios;
 
 import android.content.Context;
 import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
+
+import com.example.itype.ControladorRegistro;
+import com.example.itype.Http_Post;
+import com.example.itype.R;
+
 import org.junit.Test;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
@@ -43,7 +49,7 @@ public class ControladorRegistroTest {
     }
     @Test
     public void stringUsuarioExiste_vReg() { //PU2.2
-        onView(withId(R.id.textView_vRegUsuario)).check(matches(withText("Usuario")));
+        onView(ViewMatchers.withId(R.id.textView_vRegUsuario)).check(matches(withText("Usuario")));
     }
 
     @Test
@@ -108,11 +114,11 @@ public class ControladorRegistroTest {
     @Test
     public void registroCorrecto_VerificacionCorrecta_vReg() throws ExecutionException, InterruptedException { //PU2.14
         Http_Post request = new Http_Post();//nueva conexión post para registrar usuario
-        String result = request.execute("http://itype.ml/delete.php","user","prueba12341231").get();
-        onView(withId(R.id.editText_vRegUsuario)).perform(clearText(),typeText("prueba12341231"),closeSoftKeyboard());
-        onView(withId(R.id.editText_vRegContra)).perform(clearText(),typeText("contra123414"),closeSoftKeyboard());
+        onView(withId(R.id.editText_vRegUsuario)).perform(clearText(),typeText("prueba111"),closeSoftKeyboard());
+        onView(withId(R.id.editText_vRegContra)).perform(clearText(),typeText("contra111"),closeSoftKeyboard());
         onView(withId(R.id.button_vRegRegistrar)).perform(click());
         onView(withText("Registro correcto. Inicie nuevamente")).inRoot(withDecorView(not(is(reglaActividad.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
+        String result = request.execute("http://itype.ml/delete.php","user","prueba111").get();
     }
 
     @Test

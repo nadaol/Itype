@@ -1,9 +1,13 @@
-package com.example.itype;
+package com.example.itype.TestUnitarios;
 
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.test.rule.ActivityTestRule;
+
+import com.example.itype.ControladorPerfil;
+import com.example.itype.R;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;

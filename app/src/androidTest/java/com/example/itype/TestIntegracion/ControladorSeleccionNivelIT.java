@@ -1,4 +1,4 @@
-package com.example.itype.IntegrationTests;
+package com.example.itype.TestIntegracion;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
@@ -24,7 +24,7 @@ public class ControladorSeleccionNivelIT {
             new IntentsTestRule<>(ControladorSeleccionNivel.class);
 
     @Test
-    public void despliegueModoFacil_vSeleccionNivel() {
+    public void despliegueModoFacil_vSeleccionNivel() { //PI7.1
         //Pruebo la existencia del boton Ingresar
         onView(withId(R.id.button_vSelNivFacil)).check(matches(notNullValue()));
         onView(withId(R.id.button_vSelNivFacil)).check(matches(withText("Fácil")));
@@ -35,7 +35,7 @@ public class ControladorSeleccionNivelIT {
     }
 
     @Test
-    public void despliegueModoIntermedio_vSeleccionNivel() {
+    public void despliegueModoIntermedio_vSeleccionNivel() { //PI7.2
         //Pruebo la existencia del boton Ingresar
         onView(withId(R.id.button_vSelNivMedio)).check(matches(notNullValue()));
         onView(withId(R.id.button_vSelNivMedio)).check(matches(withText("Medio")));
@@ -46,7 +46,7 @@ public class ControladorSeleccionNivelIT {
     }
 
     @Test
-    public void despliegueModoDificil_vSeleccionNivel() {
+    public void despliegueModoDificil_vSeleccionNivel() { //PI7.3
         //Pruebo la existencia del boton Ingresar
         onView(withId(R.id.button_vSelNivDificil)).check(matches(notNullValue()));
         onView(withId(R.id.button_vSelNivDificil)).check(matches(withText("Difícil")));

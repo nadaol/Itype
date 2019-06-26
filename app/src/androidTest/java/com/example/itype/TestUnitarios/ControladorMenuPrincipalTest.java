@@ -1,9 +1,14 @@
-package com.example.itype;
+package com.example.itype.TestUnitarios;
 
 import android.content.Context;
 import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
+
+import com.example.itype.ControladorMenuPrincipal;
+import com.example.itype.R;
+
 import org.junit.Test;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
@@ -32,7 +37,7 @@ public class ControladorMenuPrincipalTest {
     }
     @Test
     public void stringTituloExiste_vMenu() { //PU3.2
-        onView(withId(R.id.textView_vMenuTitulo)).check(matches(withText("MENÚ PRINCIPAL")));
+        onView(ViewMatchers.withId(R.id.textView_vMenuTitulo)).check(matches(withText("MENÚ PRINCIPAL")));
     }
 
 

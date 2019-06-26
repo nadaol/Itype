@@ -1,4 +1,4 @@
-package com.example.itype.IntegrationTests;
+package com.example.itype.TestIntegracion;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
@@ -26,7 +26,7 @@ public class ControladorActivaIT {
             new IntentsTestRule<>(ControladorActiva.class);
 
     @Test
-    public void desplieguePerfil_vSeleccionNivel() {
+    public void desplieguePerfil_vActiva() {    // PI1.1
         //Pruebo la existencia del boton Ingresar
         onView(withId(R.id.comenzar_btn)).check(matches(notNullValue()));
         onView(withId(R.id.comenzar_btn)).check(matches(withText("Comenzar!")));
@@ -40,11 +40,11 @@ public class ControladorActivaIT {
     }
 
     @Test
-    public void despliegueMenuPrincipal_vSeleccionNivel() {
+    public void despliegueMenuPrincipal_vActiva() { //PI1.2
         onView(withId(R.id.menuPrincipal_btn)).check(matches(notNullValue()));
         onView(withId(R.id.menuPrincipal_btn)).check(matches(withText("MENÚ PRINCIPAL")));
         onView(withId(R.id.menuPrincipal_btn)).perform(click());
-        onView(withText("Se perderá el progreso de la partida")).check(matches(isDisplayed()));
+        onView(withText("Se perdera el progreso de la partida")).check(matches(isDisplayed()));
         onView(withId(android.R.id.button1)).check(matches(withText("Si. Regresar")));
         onView(withId(android.R.id.button1)).perform(click());
         onView(withId(R.id.button_vMenuInicioJuego)).check(matches(withText("Iniciar juego")));
