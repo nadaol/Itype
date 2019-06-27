@@ -3,6 +3,7 @@ package com.example.itype.TestSistema;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -158,8 +159,9 @@ public class ControladoresUITestSistema {
     }
 
     @Test
-    public void pruebaConexion20() {     //PS2.6 -> PRUEBA RN1.2
-        for(int i = 0; i < 20; i++){
+    public void pruebaConexion99() {     //PS2.6 -> PRUEBA RN1.2
+        int time=0;
+        for(int i = 0; i < 100; i++){
             onView(withId(R.id.editText_vInicioUsuario)).perform(clearText(),typeText(usuarioRegistrado),closeSoftKeyboard());//Ingreso credenciales
             onView(withId(R.id.editText_vInicioContra)).perform(clearText(),typeText(contraRegistrado),closeSoftKeyboard());
             onView(withId(R.id.button_vInicioIngresar)).perform(click());//Clic
